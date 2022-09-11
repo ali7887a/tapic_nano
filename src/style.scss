@@ -1,0 +1,104 @@
+@font-face {
+  font-family: Sahel;
+  src: url(./Font/sahel-font/Sahel.ttf);
+}
+* {
+  font-family: Sahel !important;
+  border-radius: 9px;
+}
+@media only screen and (max-width: 1100px) {
+  .MenuHeader {
+    margin-right: 15% !important;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .MenuHeader {
+    margin-right: 12% !important;
+  }
+}
+@media only screen and (max-width: 830px) {
+  .loginButton {
+    flex-direction: column-reverse !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+  }
+  .sizing {
+    font-size: smaller !important;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .Icon {
+    margin-left: 40px !important;
+  }
+}
+@media only screen and (max-width: 325px) {
+  .Icon {
+    margin-left: 20px !important;
+  }
+}
+.nav {
+  display: "flex" !important;
+  justify-content: "flex-end" !important;
+  flex-direction: row-reverse !important;
+}
+.sizing {
+  font-size: 1.8ch !important;
+}
+.signIn {
+  padding: 4% !important;
+}
+.DarkMode {
+  margin-left: 8px;
+  box-sizing: content-box;
+}
+.Icon {
+  color: white;
+}
+.Icon:hover {
+  color: blue;
+}
+.MenuHeader {
+  margin-right: 22%;
+}
+.swiper {
+  width: 100%;
+  height: 80vh;
+  background: #000;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 150px 200px;
+}
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-slide .title {
+  font-size: 41px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.swiper-slide .subtitle {
+  font-size: 21px;
+  text-align: center;
+}
+
+.swiper-slide .text {
+  font-size: 14px;
+  max-width: 600px;
+  line-height: 1.3;
+  text-align: center;
+}

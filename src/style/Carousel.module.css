@@ -1,0 +1,104 @@
+.main{
+    height: 72vh;
+    border-radius: 0px;
+}
+.h1{
+    font-size: 65px;
+    margin-bottom: 130px;
+}
+.item{
+    direction:rtl;
+    height: 90vh;
+}
+@media only screen and (max-width: 1050px) {
+    .main{
+        height: 56vh !important;
+    }
+    .h1{
+        margin-bottom: 120px !important;
+    }
+    .item{
+        height: 72vh !important;
+    }        
+  }
+  @media only screen and (max-width: 950px) {
+    .main{
+        height: 50vh !important;
+    }
+    .h1{
+        margin-bottom: 120px !important;
+    }
+    .item{
+        height: 62vh !important;
+    }        
+  }
+  @media only screen and (max-width: 850px) {
+    .main{
+        height: 42vh !important;
+    }
+    .h1{
+        margin-bottom: 120px !important;
+    }
+    .item{
+        height: 52vh !important;
+    }        
+  }
+  @media only screen and (max-width: 715px) {
+    .main{
+        height: 36vh !important;
+    }
+    .h1{
+        margin-bottom: 60px !important;
+    }
+    .item{
+        height: 42vh !important;
+    }        
+  }
+  @media only screen and (max-width: 600px) {
+    .main{
+        height: 28vh !important;
+    }
+    .h1{
+        margin-bottom: 20px !important;
+        font-size: 35px !important;
+    }
+    .item{
+        height: 32vh !important;
+    }        
+  }
+  @media only screen and (max-width: 520px) {
+    .main{
+        height: 26vh !important;
+    }
+    .h1{
+        margin-bottom: 20px !important;
+        font-size: 35px !important;
+    }
+    .item{
+        height: 28vh !important;
+    }        
+  }
+  @media only screen and (max-width: 400px) {
+    .main{
+        height: 24vh !important;
+    }
+    .h1{
+        margin-bottom: 20px !important;
+        font-size: 35px !important;
+    }
+    .item{
+        height: 25vh !important;
+    }        
+  }
+  @media only screen and (max-width: 370px) {
+    .main{
+        height: 22vh !important;
+    }
+    .h1{
+        margin-bottom: 40px !important;
+        font-size: 35px !important;
+    }
+    .item{
+        height: 28vh !important;
+    }        
+  }

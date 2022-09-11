@@ -1,0 +1,25 @@
+.main{
+    display: flex;
+    width: 98vw;
+    height: fit content;
+    padding:10px;
+    justify-content: space-evenly;
+    margin-bottom: 70px;
+}
+.firstPara , .secondPara{
+    border: none;
+    direction: rtl;
+    display: flex;
+}
+.img{
+    width: 100px;
+    height: 100px;
+    margin-top: 40px;
+}
+@media only screen and (max-width: 700px) {
+    .main{
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px;
+    }       
+  }

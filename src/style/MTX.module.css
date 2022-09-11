@@ -1,0 +1,23 @@
+.paragraph{
+    text-align: center;
+    direction: rtl;
+    margin-top: 25px;
+    font-size: large;
+}
+.title{
+    text-align: center;
+    font-weight: bolder;
+    direction: rtl;
+    margin-top: 25px;
+    font-size:35px; 
+}
+.title2{
+    font-weight: bold;
+    color:white;
+    margin-top: 35px;
+    text-align: center;
+}
+.main{
+    color:white;
+    direction: rtl;
+}

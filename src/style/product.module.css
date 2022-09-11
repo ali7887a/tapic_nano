@@ -1,0 +1,43 @@
+.showcase{
+    height: 300px;
+    width: 100%;
+    background: #000 url('../component//images/backgroundpages.jpg')
+    no-repeat center center;
+    color:#fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+} 
+.showcase::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.showcase *{
+    z-index:20;
+}
+.showcase h1{
+    font-size: 80px;
+    margin-bottom: 0;
+}
+.tabs{
+    display: flex;
+    justify-content: center;
+    margin-top: -25px;
+}
+.tab{
+    background-color: white !important;
+}
+.tab:hover{
+    background-color: #dc3545 !important;
+}
+.tab:focus{
+    background-color: #dc3545 !important;
+}

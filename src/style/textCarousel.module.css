@@ -1,0 +1,85 @@
+.animation:hover{
+    border: none;
+	background: #fff;
+	color: black;
+	border-radius: 5px;
+	position: relative;
+	box-sizing: border-box;
+	transition: all 500ms ease;
+}
+.animation{
+    padding:10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: fit-content;
+}
+.animation2{
+    /* padding:10px; */
+    border-radius: 5px;
+    background-color: rgb(222, 222, 222);
+    display: flex;
+}
+.aks{
+    width: 45vw;
+}
+.icon{
+    color:red;
+    text-align: center;
+    border-radius: 50%;
+}
+.para{
+    color:black;
+    direction: rtl;
+}
+.matn{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 50px;
+}
+.padding2{
+    padding: 0px 0px;
+    height: 100px;
+}
+.img{
+    margin-left: auto;
+    margin-right: auto;
+}
+@media only screen and (max-width: 975px) {
+    .padding{
+        padding: 130px 180px!important;
+    }       
+    .padding2{
+        padding: 20px 20px!important;
+    }       
+  }
+@media only screen and (max-width: 900px) {
+    .padding{
+        padding: 130px 130px!important;
+    }       
+  }
+@media only screen and (max-width: 650px) {
+    .padding{
+        padding: 100px 90px!important;
+    }       
+  }
+@media only screen and (max-width: 550px) {
+    .padding{
+        padding: 80px 60px!important;
+    }       
+  }
+@media only screen and (max-width: 400px) {
+    .padding{
+        padding: 60px 40px!important;
+    }       
+  }
+@media only screen and (max-width: 750px) {
+    .animation2{
+        flex-direction: column;
+    }       
+    .matn{
+        margin-right: 0px !important;
+    }
+    .aks{
+        width: 60vw;
+    }
+  }

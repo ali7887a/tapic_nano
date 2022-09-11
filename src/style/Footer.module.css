@@ -1,0 +1,19 @@
+.para1{
+    font-size: 14px;
+    color: #dddddd;
+    font-style: normal;
+    width: 85vw;
+    text-align: center;
+}
+.para2{
+    font-size: 12px;
+    color: #dddddd;
+    font-style: normal;
+    text-align: center;
+}
+.imagelist{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}

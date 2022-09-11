@@ -1,0 +1,73 @@
+.main{
+    width: 96vw;
+    height: 104vh;
+    background-image: url(../component/images/backgroundcarousel.jpg);
+    padding: 2% !important;
+    border-radius: 8px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 2% !important;
+    z-index: 1 !important;
+    overflow: visible !important;
+    position: relative !important;
+    margin-bottom: 20px;
+}
+.main2{
+    width: 96vw;
+    height: 112vh;
+    background-color: rgb(222, 222, 222);
+    padding: 2% !important;
+    border-radius: 8px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 2% !important;
+    z-index: 1 !important;
+    overflow: visible !important;
+    position: relative !important;
+    margin-bottom: 20px;
+}
+@media only screen and (max-width: 1075px) {
+    .main2{
+        height: 115vh !important;
+    }
+  }
+@media only screen and (max-width: 875px) {
+    .main2{
+        height: 117vh !important;
+    }
+  }
+@media only screen and (max-width: 730px) {
+    .main2{
+        height: 121vh !important;
+    }
+  }
+@media only screen and (max-width: 631px) {
+    .main2{
+        height: 123vh !important;
+    }
+  }
+@media only screen and (max-width: 550px) {
+    .main2{
+        height: 130vh !important;
+    }
+  }
+@media only screen and (max-width: 445px) {
+    .main2{
+        height: 133vh !important;
+    }
+  }
+@media only screen and (max-width: 411px) {
+    .main2{
+        height: 137vh !important;
+    }
+  }
+@media only screen and (max-width: 388px) {
+    .main2{
+        height: 142vh !important;
+    }
+  }
+@media only screen and (max-width: 372px) {
+    .main2{
+        height: 147vh !important;
+    }
+  }
