@@ -3,25 +3,26 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 function Mcurrency() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -69,7 +70,7 @@ function Mcurrency() {
                 />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  نمونه ای از لایحه 1
+                    نمونه ای از لایحه 1
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -82,8 +83,7 @@ function Mcurrency() {
                 />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  نمونه ای از لایحه 2
-
+                    نمونه ای از لایحه 2
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -96,7 +96,7 @@ function Mcurrency() {
                 />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  نمونه ای از لایحه 3
+                    نمونه ای از لایحه 3
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -111,10 +111,18 @@ function Mcurrency() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
             درخواست کالا
           </Button>
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform")}
+          >
             فناوری کاربردی: MTX
           </Button>
         </div>

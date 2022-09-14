@@ -3,8 +3,9 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate} from "react-router-dom";
 function EtInk() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
@@ -102,7 +103,7 @@ function EtInk() {
                 <Card.Img variant="top" src={require("./images/EtInk/4.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  مبلمان هوشمند
+                    مبلمان هوشمند
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -112,7 +113,7 @@ function EtInk() {
                 <Card.Img variant="top" src={require("./images/EtInk/5.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  نمایشگر شفاف
+                    نمایشگر شفاف
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -127,10 +128,18 @@ function EtInk() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
             درخواست کالا
           </Button>
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform/ETD")}
+          >
             فناوری کاربردی: ETD
           </Button>
         </div>

@@ -3,25 +3,26 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 function Mcard() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -68,7 +69,7 @@ function Mcard() {
                 <Card.Img variant="top" src={require("./images/mcard/2.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  کارت پیش پرداخت
+                    کارت پیش پرداخت
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -78,7 +79,7 @@ function Mcard() {
                 <Card.Img variant="top" src={require("./images/mcard/3.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  کارت گارانتی
+                    کارت گارانتی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -88,7 +89,7 @@ function Mcard() {
                 <Card.Img variant="top" src={require("./images/mcard/4.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  کارت شناسایی
+                    کارت شناسایی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -103,10 +104,18 @@ function Mcard() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
             درخواست کالا
           </Button>
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform")}
+          >
             فناوری کاربردی: MTX
           </Button>
         </div>

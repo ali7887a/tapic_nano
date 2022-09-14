@@ -36,7 +36,7 @@ function Card1() {
             marginRight: "auto",
             marginLeft: "auto",
           }}
-          src={require("./images/1.png")}
+          src={require("./images/withback.png")}
         />
       </Card>
       <Card className={styles.children} as={Link} to="ir2" style={{borderColor:'white' , borderRadius:"8px"}}>

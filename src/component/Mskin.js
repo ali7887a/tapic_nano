@@ -4,25 +4,26 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate} from "react-router-dom";
 function Mskin() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -143,26 +144,20 @@ function Mskin() {
             </Col>
             <Col>
               <Card style={{ border: "none" }}>
-                <Card.Img
-                  variant="top"
-                  src={require("./images/Mskin/4.jpg")}
-                />
+                <Card.Img variant="top" src={require("./images/Mskin/4.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  Living Science: بلندگوی صوتی
+                    Living Science: بلندگوی صوتی
                   </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
             <Col>
               <Card style={{ border: "none" }}>
-                <Card.Img
-                  variant="top"
-                  src={require("./images/Mskin/5.jpg")}
-                />
+                <Card.Img variant="top" src={require("./images/Mskin/5.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  تجهیزات پزشکی: MRI
+                    تجهیزات پزشکی: MRI
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -177,8 +172,20 @@ function Mskin() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">درخواست کالا</Button>
-          <Button variant="danger" size="lg">فناوری کاربردی: MPD</Button>
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
+            درخواست کالا
+          </Button>
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform/MPD")}
+          >
+            فناوری کاربردی: MPD
+          </Button>
         </div>
       </Card>
     </>

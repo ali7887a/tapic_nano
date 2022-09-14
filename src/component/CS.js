@@ -14,7 +14,7 @@ function CS() {
         <Button variant="outline-danger" className={styles.tab} as={Link} to='/CS/productInquiry'>استعلام محصولات</Button>
         <Button variant="outline-danger" className={styles.tab} as={Link} to='/CS/IRInquiry'>استعلام سرمایه گذاری</Button>
         <Button variant="outline-danger" className={styles.tab} as={Link} to='/CS/UnfairTrading'>گزارش تجارت ناعادلانه</Button>
-        <Button variant="outline-danger" className={styles.tab} as={Link} to='/CS/OtherInquiry'>سوالات دگیر</Button>
+        <Button variant="outline-danger" className={styles.tab} as={Link} to='/CS/OtherInquiry'>سوالات دیگر</Button>
       </ButtonGroup>
       </div>
       <Outlet/>

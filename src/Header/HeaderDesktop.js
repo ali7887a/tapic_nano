@@ -155,14 +155,15 @@ const Header = () => {
                   }}
                 >
                   <img
-                    src={require("./logo_x2-deprecated.png")}
-                    style={{ width: "150px" }}
+                    src={require('../component/images/lostback2.png')}
+                    style={{ width: "80px" }}
                   />
                 </Typography>
               </Tooltip>
               <Box
                 sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
                 className="MenuHeader"
+                style={{justifyContent:"center" , marginRight:"0px"}}
               >
                 <PopupState variant="popover" popupId="demo-popup-menu">
                   {(popupState) => (

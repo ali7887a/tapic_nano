@@ -4,8 +4,9 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate } from "react-router-dom";
 function Mpurikit() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
@@ -186,10 +187,19 @@ function Mpurikit() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
-با مسئول تماس بگیرید          </Button>
-          <Button variant="danger" size="lg">
-در مورد SPM بیاموزید
+<Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
+            درخواست کالا
+          </Button>
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform/SPM")}
+          >
+            فناوری کاربردی: SPM
           </Button>
         </div>
       </Card>

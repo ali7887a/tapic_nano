@@ -3,8 +3,9 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 function EXInk() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
@@ -96,7 +97,7 @@ function EXInk() {
                 <Card.Img variant="top" src={require("./images/ExInk/4.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  پوسته پوسته محصول فناوری اطلاعات
+                    پوسته پوسته محصول فناوری اطلاعات
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -106,7 +107,7 @@ function EXInk() {
                 <Card.Img variant="top" src={require("./images/ExInk/5.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  کاشی رنگ داخلی
+                    کاشی رنگ داخلی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -116,7 +117,7 @@ function EXInk() {
                 <Card.Img variant="top" src={require("./images/ExInk/6.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  پنجره رنگی
+                    پنجره رنگی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -131,10 +132,18 @@ function EXInk() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
             درخواست کالا
           </Button>
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform/ETX")}
+          >
             فناوری کاربردی: ETX
           </Button>
         </div>

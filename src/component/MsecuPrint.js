@@ -3,25 +3,26 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 function MsecuPrint() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -55,7 +56,12 @@ function MsecuPrint() {
             TOPICNANO به فناوری فرآیند رمپ بالا برای قابلیت تولید انبوه دست
             یافته است..
           </Card.Text>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px"  , justifyContent:"space-around"}}>
+          <Row
+            xs={1}
+            md={3}
+            className="g-6"
+            style={{ marginTop: "25px", justifyContent: "space-around" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img
@@ -184,10 +190,18 @@ function MsecuPrint() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
             درخواست کالا
           </Button>
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform")}
+          >
             فناوری کاربردی: MTX
           </Button>
         </div>

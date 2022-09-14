@@ -4,25 +4,26 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import CircleIcon from "@mui/icons-material/Circle";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate} from "react-router-dom";
 function Mpaper() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -61,12 +62,18 @@ function Mpaper() {
           >
             <Col>
               <Card style={{ border: "none" }}>
-                <Card.Img variant="top" src={require("./images/Mpaper/1.jpg")} />
+                <Card.Img
+                  variant="top"
+                  src={require("./images/Mpaper/1.jpg")}
+                />
               </Card>
             </Col>
             <Col>
               <Card style={{ border: "none" }}>
-                <Card.Img variant="top" src={require("./images/Mpaper/2.jpg")} />
+                <Card.Img
+                  variant="top"
+                  src={require("./images/Mpaper/2.jpg")}
+                />
               </Card>
             </Col>
           </Row>
@@ -83,20 +90,32 @@ function Mpaper() {
             مشخصات
           </Divider>
           <p style={{ direction: "rtl", marginRight: "10px" }}>
-            <CircleIcon fontSize={"small"} style={{color:'red' , marginLeft:"8px"}}/>
+            <CircleIcon
+              fontSize={"small"}
+              style={{ color: "red", marginLeft: "8px" }}
+            />
             فرم فیلم قابل حمل انعطاف پذیر و سبک وزن
           </p>
           <p style={{ direction: "rtl", marginRight: "10px" }}>
-          <CircleIcon fontSize={"small"} style={{color:'red' , marginLeft:"8px"}}/>
-          استفاده راحت از نوشتن و پاک کردن توسط قلم مغناطیسی
+            <CircleIcon
+              fontSize={"small"}
+              style={{ color: "red", marginLeft: "8px" }}
+            />
+            استفاده راحت از نوشتن و پاک کردن توسط قلم مغناطیسی
           </p>
           <p style={{ direction: "rtl", marginRight: "10px" }}>
-          <CircleIcon fontSize={"small"} style={{color:'red' , marginLeft:"8px"}}/>
-          محصول Roll to Roll را می توان طبق یک سازنده سفارشی کرد
+            <CircleIcon
+              fontSize={"small"}
+              style={{ color: "red", marginLeft: "8px" }}
+            />
+            محصول Roll to Roll را می توان طبق یک سازنده سفارشی کرد
           </p>
           <p style={{ direction: "rtl", marginRight: "10px" }}>
-          <CircleIcon fontSize={"small"} style={{color:'red' , marginLeft:"8px"}}/>
-          به عنوان صفحه نمایش پروژکتور نیز می توان استفاده کرد
+            <CircleIcon
+              fontSize={"small"}
+              style={{ color: "red", marginLeft: "8px" }}
+            />
+            به عنوان صفحه نمایش پروژکتور نیز می توان استفاده کرد
           </p>
         </Card.Body>
       </Card>
@@ -113,30 +132,39 @@ function Mpaper() {
           <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
             <Col>
               <Card style={{ border: "none" }}>
-                <Card.Img variant="top" src={require("./images/Mpaper/3.jpg")} />
+                <Card.Img
+                  variant="top"
+                  src={require("./images/Mpaper/3.jpg")}
+                />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  کتاب ایده های قابل حمل
+                    کتاب ایده های قابل حمل
                   </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
             <Col>
               <Card style={{ border: "none" }}>
-                <Card.Img variant="top" src={require("./images/Mpaper/4.jpg")} />
+                <Card.Img
+                  variant="top"
+                  src={require("./images/Mpaper/4.jpg")}
+                />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  بچه چند تخته
+                    بچه چند تخته
                   </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
             <Col>
               <Card style={{ border: "none" }}>
-                <Card.Img variant="top" src={require("./images/Mpaper/5.jpg")} />
+                <Card.Img
+                  variant="top"
+                  src={require("./images/Mpaper/5.jpg")}
+                />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  دفتر ایده هیئت
+                    دفتر ایده هیئت
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -151,10 +179,18 @@ function Mpaper() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
             درخواست کالا
           </Button>
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform/MPD")}
+          >
             فناوری کاربردی: MPD
           </Button>
         </div>

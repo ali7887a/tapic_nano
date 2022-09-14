@@ -3,8 +3,9 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate } from "react-router-dom";
 function Mtag() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
@@ -214,8 +215,8 @@ function Mtag() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">درخواست کالا</Button>
-          <Button variant="danger" size="lg">فناوری کاربردی: MTX</Button>
+          <Button variant="danger" size="lg" onClick={()=> navigation ('/CS/productInquiry')}>درخواست کالا</Button>
+          <Button variant="danger" size="lg" onClick={()=> navigation ('/technology/nanoplatform')}>فناوری کاربردی: MTX</Button>
         </div>
       </Card>
     </>

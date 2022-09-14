@@ -4,25 +4,26 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import CircleIcon from "@mui/icons-material/Circle";
-import { useLocation } from "react-router-dom";
+import { useLocation , useNavigate } from "react-router-dom";
 function Mpac() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -67,20 +68,32 @@ function Mpac() {
             مشخصات{" "}
           </Divider>
           <p style={{ direction: "rtl", marginRight: "10px" }}>
-            <CircleIcon fontSize={"small"} style={{color:'red' , marginLeft:"8px"}}/>
+            <CircleIcon
+              fontSize={"small"}
+              style={{ color: "red", marginLeft: "8px" }}
+            />
             پشتیبانی از چاپ گراور با سرعت بالا با راه حل احراز هویت واقعی.
           </p>
           <p style={{ direction: "rtl", marginRight: "10px" }}>
-          <CircleIcon fontSize={"small"} style={{color:'red' , marginLeft:"8px"}}/>
+            <CircleIcon
+              fontSize={"small"}
+              style={{ color: "red", marginLeft: "8px" }}
+            />
             انواع فیلم بسته بندی انعطاف پذیر مانند BOPP، PET درمان شده با کرونا،
             پلی اتیلن، نایلون، کاغذ و غیره.
           </p>
           <p style={{ direction: "rtl", marginRight: "10px" }}>
-          <CircleIcon fontSize={"small"} style={{color:'red' , marginLeft:"8px"}}/>
+            <CircleIcon
+              fontSize={"small"}
+              style={{ color: "red", marginLeft: "8px" }}
+            />
             سفارشی کردن پشتیبانی طراحی با راه حل احراز هویت واقعی مقرون به صرفه.
           </p>
           <p style={{ direction: "rtl", marginRight: "10px" }}>
-          <CircleIcon fontSize={"small"} style={{color:'red' , marginLeft:"8px"}}/>
+            <CircleIcon
+              fontSize={"small"}
+              style={{ color: "red", marginLeft: "8px" }}
+            />
             براقیت استثنایی و مقاومت در برابر حرارت PU.
           </p>
         </Card.Body>
@@ -93,7 +106,7 @@ function Mpac() {
               fontSize: "25px",
             }}
           >
-بخش قابل اجرا
+            بخش قابل اجرا
           </Divider>
           <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
             <Col>
@@ -136,10 +149,18 @@ function Mpac() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
             درخواست کالا
           </Button>
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform")}
+          >
             فناوری کاربردی: MTX
           </Button>
         </div>

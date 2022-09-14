@@ -10,10 +10,9 @@ import Chip from "@mui/material/Chip";
 import Card from "react-bootstrap/Card";
 import PaginationControlled from "./pagination";
 import { Button } from "react-bootstrap";
-
+import {useNavigate} from 'react-router-dom'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
   return (
     <div
       role="tabpanel"
@@ -49,6 +48,7 @@ function IR() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const navigation = useNavigate()
   return (
     <>
       <div className={styles.showcase}>
@@ -83,7 +83,7 @@ function IR() {
             ما یک بیانیه مطبوعاتی جدید از تاپیک نانو را به اشتراک می گذاریم.
           </p>
           <p className={styles.p3}>
-            <a className={styles.p3} href="./ir">
+            <a className={styles.p3} onClick={()=> navigation('/ir')}>
               نشان دادن ویدئوها
             </a>
           </p>
@@ -101,7 +101,7 @@ function IR() {
               marginLeft: "auto",
             }}
           >
-            <Card.Img variant="top" src={require("./images/11.png")} />
+            <Card.Img variant="top" src={require("./images/withback.png")} />
             <Card.Body>
               <Card.Text style={{ direction: "rtl" }}>
                 تاپیک نانو، یک شرکت متخصص در مواد جدید پیشرفته مبتنی بر نانوذرات،
@@ -144,7 +144,7 @@ function IR() {
           </Card>
           <Divider />
           <div style={{textAlign:"center" , marginTop:"20px"}}>
-          <Button variant="danger" >مشاهده لیست</Button>{' '}
+          <Button variant="danger" onClick={()=> navigation('/ir')} >مشاهده لیست</Button>{' '}
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>

@@ -4,25 +4,26 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
-import {useLocation} from 'react-router-dom'
+import { useLocation, useNavigate } from "react-router-dom";
 function MBead() {
+  const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -52,7 +53,12 @@ function MBead() {
             تاپیک نانو قابلیت تولید انبوه را برای تولید محصول مقرون به صرفه با
             کارایی بالا ایجاد کرده است.
           </Card.Text>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" , justifyContent:"space-around"}}>
+          <Row
+            xs={1}
+            md={3}
+            className="g-6"
+            style={{ marginTop: "25px", justifyContent: "space-around" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/mbead/1.jpg")} />
@@ -240,11 +246,20 @@ function MBead() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg">
+          <Button
+            variant="danger"
+            size="lg"
+            onClick={() => navigation("/technology/nanoplatform/SPM")}
+          >
             SPM بیاموزید در مورد{" "}
           </Button>
           <Button variant="danger" size="lg">
-            <a href="http://www.m-bead.com/" style={{textDecoration:"none" , color:'white'}}>M-Bead برو به صفحه اصلی </a>{" "}
+            <a
+              href="http://www.m-bead.com/"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              M-Bead برو به صفحه اصلی{" "}
+            </a>{" "}
           </Button>
         </div>
       </Card>
