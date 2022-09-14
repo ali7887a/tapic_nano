@@ -1,7 +1,6 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 // Import Swiper styles
 import "swiper/css";
@@ -48,7 +47,7 @@ export default function TextCarousel() {
         <SwiperSlide className={styles.padding2} onClick={()=>{navigation('technology/nanoplatform')}}>
           <div className={styles.animation2}>
             <div className={styles.img}>
-              <img className={styles.aks} src={require("./images/a.png")} />
+              <img className={styles.aks} src={require("./images/a.png")} alt="MTX"/>
             </div>
             <div className={styles.matn}>
               <p className={styles.para}>
@@ -62,10 +61,10 @@ export default function TextCarousel() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.padding2}>
+        <SwiperSlide className={styles.padding2} onClick={()=>{navigation('/technology/nanoplatform/MPD')}}>
           <div className={styles.animation2}>
             <div className={styles.img}>
-              <img className={styles.aks} src={require("./images/b.png")} />
+              <img className={styles.aks} src={require("./images/b.png")} alt="MPD"/>
             </div>
             <div className={styles.matn}>
               <p className={styles.para}>
@@ -80,10 +79,10 @@ export default function TextCarousel() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.padding2}>
+        <SwiperSlide className={styles.padding2} onClick={()=>{navigation('/technology/nanoplatform/SPM')}}>
           <div className={styles.animation2}>
             <div className={styles.img}>
-              <img className={styles.aks} src={require("./images/c.png")} />
+              <img className={styles.aks} src={require("./images/c.png")} alt="SPM" />
             </div>
             <div className={styles.matn}>
               <p className={styles.para}>
@@ -93,10 +92,10 @@ export default function TextCarousel() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.padding2}>
+        <SwiperSlide className={styles.padding2} onClick={()=>{navigation('/technology/nanoplatform/ETX')}}>
           <div className={styles.animation2}>
             <div className={styles.img}>
-              <img className={styles.aks} src={require("./images/d.png")} />
+              <img className={styles.aks} src={require("./images/d.png")} alt="ETX"/>
             </div>
             <div className={styles.matn}>
               <p className={styles.para}>
@@ -106,10 +105,10 @@ export default function TextCarousel() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.padding2}>
+        <SwiperSlide className={styles.padding2} onClick={()=>{navigation('/technology/nanoplatform/EPD')}}>
           <div className={styles.animation2}>
             <div className={styles.img}>
-              <img className={styles.aks} src={require("./images/f.png")} />
+              <img className={styles.aks} src={require("./images/f.png")} alt="EPD" />
             </div>
             <div className={styles.matn}>
               <p className={styles.para}>
@@ -119,10 +118,10 @@ export default function TextCarousel() {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className={styles.padding2}>
+        <SwiperSlide className={styles.padding2} onClick={()=>{navigation('/technology/nanoplatform/ETD')}}>
           <div className={styles.animation2}>
             <div className={styles.img}>
-              <img className={styles.aks} src={require("./images/g.png")} />
+              <img className={styles.aks} src={require("./images/g.png")} alt="ETD" />
             </div>
             <div className={styles.matn}>
               <p className={styles.para}>

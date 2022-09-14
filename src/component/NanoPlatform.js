@@ -1,9 +1,27 @@
 import React from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import styles from "../style/Security.module.css";
 import {Link} from "react-router-dom"
 function NanoPlatform() {
+  const location = useLocation();
+  const path = location.pathname;
+  const store = window.localStorage;
+  let url = '';
+  let prevUrl = '';
+
+  url = store.getItem('url');
+  store.setItem('prevUrl', url);
+  store.setItem('url', path);
+
+  url = store.getItem('url');
+  prevUrl = store.getItem('prevUrl');
+  const pre = localStorage.getItem('prevUrl')
+  if(pre.includes("/technology")){
+    console.log('current page')
+  }else{
+    window.scrollTo(0,0)
+  }
   return (
     <>
       <div className={styles.tabs}>

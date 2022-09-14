@@ -4,6 +4,11 @@
     margin-top: 25px;
     font-size: large;
 }
+.paragraph2{
+    direction: rtl;
+    margin-top: 25px;
+    font-size: large;
+}
 .title{
     text-align: center;
     font-weight: bolder;
@@ -12,10 +17,10 @@
     font-size:35px; 
 }
 .title2{
-    font-weight: bold;
     color:white;
-    margin-top: 35px;
     text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
 }
 .main{
     color:white;

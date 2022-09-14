@@ -16,7 +16,7 @@ import RadioButtonCheckedTwoToneIcon from "@mui/icons-material/RadioButtonChecke
 import { useState } from "react";
 import "../style.scss";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-import { Navbar} from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import {
   ListItem,
@@ -51,30 +51,42 @@ const Header = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-          <ListItem key={'IR'} disablePadding as={Link} to='ir' style={{color:'black'}}>
-            <ListItemButton>
-              <ListItemIcon>
-                {true ? (
-                  <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
-                ) : (
-                  <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={'IR'} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem key={'PR'} disablePadding as={Link} to='ir' style={{color:'black'}}>
-            <ListItemButton>
-              <ListItemIcon>
-                {true ? (
-                  <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
-                ) : (
-                  <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
-                )}
-              </ListItemIcon>
-              <ListItemText primary={'PR'} />
-            </ListItemButton>
-          </ListItem>
+        <ListItem
+          key={"IR"}
+          disablePadding
+          as={Link}
+          to="ir"
+          style={{ color: "black" }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              {true ? (
+                <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
+              ) : (
+                <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
+              )}
+            </ListItemIcon>
+            <ListItemText primary={"IR"} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem
+          key={"PR"}
+          disablePadding
+          as={Link}
+          to="ir"
+          style={{ color: "black" }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              {true ? (
+                <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
+              ) : (
+                <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
+              )}
+            </ListItemIcon>
+            <ListItemText primary={"PR"} />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -92,7 +104,7 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const navigation = useNavigate()
+  const navigation = useNavigate();
   return (
     <>
       <Navbar
@@ -105,7 +117,7 @@ const Header = () => {
             backgroundColor: "rgba(0,0,0,0.9)",
             display: "flex",
             direction: "rtl",
-            borderRadius: "0px"
+            borderRadius: "0px",
           }}
         >
           <Container maxWidth="xLg">
@@ -165,13 +177,19 @@ const Header = () => {
                       </Button>
                       <Menu {...bindMenu(popupState)}>
                         <MenuItem
-                          onClick={popupState.close}
+                          onClick={() => {
+                            navigation("/technology/nanoplatform");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
                           پلتفرم نانو فعال
                         </MenuItem>
                         <MenuItem
-                          onClick={popupState.close}
+                          onClick={() => {
+                            navigation("/technology/ip");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
                           وضعیت IP
@@ -195,25 +213,37 @@ const Header = () => {
                       </Button>
                       <Menu {...bindMenu(popupState)}>
                         <MenuItem
-                          onClick={()=>{navigation('/product/security') ; popupState.close()}}
+                          onClick={() => {
+                            navigation("/product/security");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
                           گروه امنیتی
                         </MenuItem>
                         <MenuItem
-                          onClick={()=>{navigation('/product/display') ; popupState.close()}}
+                          onClick={() => {
+                            navigation("/product/display");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
                           گروه نمایش
                         </MenuItem>
                         <MenuItem
-                          onClick={()=>{navigation('/product/bio') ; popupState.close()}}
+                          onClick={() => {
+                            navigation("/product/bio");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
                           گروه بیوزیستی
                         </MenuItem>
                         <MenuItem
-                          onClick={()=>{navigation('/product/functional') ; popupState.close()}}
+                          onClick={() => {
+                            navigation("/product/functional");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
                           گروه عملکردی
@@ -225,16 +255,6 @@ const Header = () => {
                 <PopupState variant="popover" popupId="demo-popup-menu">
                   {(popupState) => (
                     <React.Fragment>
-                      <Button
-                        sx={{ my: 2, color: "white", display: "block" }}
-                        {...bindTrigger(popupState)}
-                      >
-                        <Tooltip title="کلیک کنید">
-                          <Typography noWrap style={{ padding: "5px" }}>
-                            تاپیک نانو
-                          </Typography>
-                        </Tooltip>
-                      </Button>
                       <Menu {...bindMenu(popupState)}>
                         <MenuItem
                           onClick={popupState.close}
@@ -291,28 +311,40 @@ const Header = () => {
                       </Button>
                       <Menu {...bindMenu(popupState)}>
                         <MenuItem
-                          onClick={popupState.close}
                           style={{ direction: "rtl" }}
+                          onClick={() => {
+                            navigation("/CS/productInquiry");
+                            popupState.close();
+                          }}
                         >
                           درخواست کالا
                         </MenuItem>
                         <MenuItem
-                          onClick={popupState.close}
+                          onClick={() => {
+                            navigation("/CS/IRInquiry");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
-                          استعلام IR
+                          استعلام سرمایه گذاری
                         </MenuItem>
                         <MenuItem
-                          onClick={popupState.close}
+                          onClick={() => {
+                            navigation("/CS/UnfairTrading");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
-                          تجارت غیرمنصفانه
+                          گزارش تجارت ناعادلانه{" "}
                         </MenuItem>
                         <MenuItem
-                          onClick={popupState.close}
+                          onClick={() => {
+                            navigation("/CS/OtherInquiry");
+                            popupState.close();
+                          }}
                           style={{ direction: "rtl" }}
                         >
-                          سایر کالاها
+                          سوالات دیگر
                         </MenuItem>
                       </Menu>
                     </React.Fragment>
@@ -323,6 +355,9 @@ const Header = () => {
                 <Tooltip title="پشتیبانی">
                   <IconButton sx={{ p: 0 }}>
                     <SupportAgentTwoToneIcon
+                      onClick={() => {
+                        navigation("/CS/productInquiry");
+                      }}
                       style={{ color: "white", marginLeft: "8px" }}
                     />
                   </IconButton>

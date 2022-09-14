@@ -33,6 +33,11 @@ import ETX from "./component/ETX";
 import EPD from "./component/EPD";
 import ETD from "./component/ETD";
 import IP from "./component/IP";
+import CS from "./component/CS";
+import ProductInquiry from "./component/ProductInquiry";
+import IRInquiry from "./component/IRInquiry";
+import UnfairTrading from "./component/UnfairTrading";
+import OtherInquiry from "./component/OtherInquiry";
 const App = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 900;
@@ -82,6 +87,12 @@ const App = () => {
               <Route path="ETD" element={<ETD />} />
             </Route>
             <Route path="IP" element={<IP />} />
+          </Route>
+          <Route path="CS" element={<CS />}>
+            <Route path="productInquiry" element={<ProductInquiry />}/>
+            <Route path="IRInquiry" element={<IRInquiry />} />
+            <Route path="UnfairTrading" element={<UnfairTrading />} />
+            <Route path="OtherInquiry" element={<OtherInquiry />} />
           </Route>
         </Routes>
         <ScrollButton />

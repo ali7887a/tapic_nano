@@ -226,7 +226,7 @@ const Header = () => {
             style={{ color: "white", minWidth: "47px" }}
           />
           <BottomNavigationAction
-            label="نانوبریک"
+            label="خانه"
             value="home"
             icon={
               <Avatar sx={{ bgcolor: "white" }} style={{ fontSize: "large" }}>
