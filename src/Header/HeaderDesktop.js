@@ -155,7 +155,7 @@ const Header = () => {
                   }}
                 >
                   <img
-                    src={require('../component/images/lostback2.png')}
+                    src={require('../component/images/logo.png')}
                     style={{ width: "80px" }}
                   />
                 </Typography>

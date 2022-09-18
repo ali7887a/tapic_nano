@@ -16,7 +16,7 @@ function List1() {
         <div className="row g-0">
           <div className="col-md-4">
             <img
-              src={require("./images/withback.png")}
+              src={require("./images/NANO.png")}
               className="img-fluid rounded-start"
               alt="..."
             />
@@ -48,7 +48,7 @@ function List1() {
         <div className="row g-0">
           <div className="col-md-4">
             <img
-              src={require("./images/withback.png")}
+              src={require("./images/NANO.png")}
               className="img-fluid rounded-start"
               alt="..."
             />
@@ -80,7 +80,7 @@ function List1() {
         <div className="row g-0">
           <div className="col-md-4">
             <img
-              src={require("./images/withback.png")}
+              src={require("./images/NANO.png")}
               className="img-fluid rounded-start"
               alt="..."
             />
@@ -112,7 +112,7 @@ function List1() {
         <div className="row g-0">
           <div className="col-md-4">
             <img
-              src={require("./images/withback.png")}
+              src={require("./images/NANO.png")}
               className="img-fluid rounded-start"
               alt="..."
             />
@@ -144,7 +144,7 @@ function List1() {
         <div className="row g-0">
           <div className="col-md-4">
             <img
-              src={require("./images/withback.png")}
+              src={require("./images/NANO.png")}
               className="img-fluid rounded-start"
               alt="..."
             />

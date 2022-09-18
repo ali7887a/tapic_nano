@@ -185,7 +185,7 @@ const Header = () => {
                   style={{justifyContent:"flex-end"}}
                 >
                   <img
-                    src={require("./logo_x2-deprecated.png")}
+                    src={require("../component/images/logo.png")}
                     style={{ width: "150px" }}
                   />
                 </Typography>

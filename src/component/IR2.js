@@ -101,7 +101,7 @@ function IR() {
               marginLeft: "auto",
             }}
           >
-            <Card.Img variant="top" src={require("./images/withback.png")} />
+            <Card.Img variant="top" src={require("./images/NANO.png")} />
             <Card.Body>
               <Card.Text style={{ direction: "rtl" }}>
                 تاپیک نانو، یک شرکت متخصص در مواد جدید پیشرفته مبتنی بر نانوذرات،
