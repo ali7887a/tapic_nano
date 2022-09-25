@@ -35,7 +35,7 @@ export default function TextCarousel() {
         }}
         navigation={true}
         modules={[Parallax, Pagination, Navigation]}
-        className="mySwiper"
+        className={`${styles.swip} ${"mySwiper"}`}
       >
         <div
           slot="container-start"

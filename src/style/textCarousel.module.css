@@ -1,85 +1,211 @@
-.animation:hover{
-    border: none;
-	background: #fff;
-	color: black;
-	border-radius: 5px;
-	position: relative;
-	box-sizing: border-box;
-	transition: all 500ms ease;
+.animation:hover {
+  border: none;
+  background: #fff;
+  color: black;
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 500ms ease;
 }
-.animation{
-    padding:10px;
-    border: 2px solid white;
-    border-radius: 5px;
-    width: fit-content;
+.animation {
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  width: fit-content;
 }
-.animation2{
-    /* padding:10px; */
-    border-radius: 5px;
-    background-color: rgb(222, 222, 222);
-    display: flex;
+.animation2 {
+  /* padding:10px; */
+  border-radius: 5px;
+  background-color: rgb(222, 222, 222);
+  display: flex;
 }
-.aks{
-    width: 45vw;
+.aks {
+  width: 45vw;
 }
-.icon{
-    color:red;
-    text-align: center;
-    border-radius: 50%;
+.icon {
+  color: red;
+  text-align: center;
+  border-radius: 50%;
 }
-.para{
-    color:black;
-    direction: rtl;
+.para {
+  color: black;
+  direction: rtl;
 }
-.matn{
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 50px;
+.matn {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 50px;
 }
-.padding2{
-    padding: 0px 0px;
-    height: 100px;
+.padding2 {
+  padding: 0px 0px;
+  height: 100px;
 }
-.img{
-    margin-left: auto;
-    margin-right: auto;
+.img {
+  margin-left: auto;
+  margin-right: auto;
 }
 @media only screen and (max-width: 975px) {
-    .padding{
-        padding: 130px 180px!important;
-    }       
-    .padding2{
-        padding: 20px 20px!important;
-    }       
+  .padding {
+    padding: 130px 180px !important;
   }
-@media only screen and (max-width: 900px) {
-    .padding{
-        padding: 130px 130px!important;
-    }       
+  .padding2 {
+    padding: 20px 20px !important;
   }
-@media only screen and (max-width: 650px) {
-    .padding{
-        padding: 100px 90px!important;
-    }       
+}
+@media only screen and (max-width: 1368px) {
+  @media only screen and (max-height: 912px) {
+    .padding {
+      padding: 1px 120px !important;
+    }
+    .swip {
+      height: 60% !important;
+    }
   }
-@media only screen and (max-width: 550px) {
-    .padding{
-        padding: 80px 60px!important;
-    }       
+}
+@media only screen and (max-width: 1280px) {
+  @media only screen and (max-height: 800px) {
+    .padding {
+      padding: 1px 120px !important;
+    }
+    .swip {
+      height: 76% !important;
+    }
   }
-@media only screen and (max-width: 400px) {
-    .padding{
-        padding: 60px 40px!important;
-    }       
+}
+@media only screen and (min-width: 1200px) {
+  .padding {
+    padding: 1px 120px !important;
   }
+  .swip {
+    height: 77% !important;
+  }
+}
+@media only screen and (max-width: 1180px) {
+  .padding {
+    padding: 1px 120px !important;
+  }
+  .swip {
+    height: 74% !important;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .padding {
+    padding: 0px 120px !important;
+  }
+  .swip {
+    height: 74% !important;
+  }
+}
+@media only screen and (max-width: 915px) {
+  .padding {
+    padding: 0px 120px !important;
+  }
+  .swip {
+    height: 74% !important;
+  }
+}
+@media only screen and (max-width: 896px) {
+  .padding {
+    padding: 18px 115px !important;
+  }
+  .swip {
+    height: 75% !important;
+  }
+}
+@media only screen and (max-width: 896px) {
+    @media only screen and (max-height: 414px) {
+      .padding {
+        padding: 1px 120px !important;
+      }
+      .swip {
+        height: 75% !important;
+      }
+    }
+  }
+@media only screen and (max-width: 851px) {
+  .padding {
+    padding: 1px 85px !important;
+  }
+  .swip {
+    height: 77% !important;
+  }
+}
+@media only screen and (max-width: 667px) {
+  .padding {
+    padding: 0px 38px !important;
+  }
+  .swip {
+    height: 74%;
+  }
+}
+@media only screen and (max-width: 568px) {
+    @media only screen and (max-height: 320px) {
+      .padding {
+        padding: 1px 120px !important;
+      }
+      .swip {
+        height: 75% !important;
+      }
+    }
+  }
+@media only screen and (max-width: 540px) {
+  @media only screen and (max-height: 720px) {
+    .padding {
+      padding: 1px 120px !important;
+    }
+    .swip {
+      height: 70% !important;
+    }
+  }
+}
+@media only screen and (max-width: 414px) {
+  .padding {
+    padding: 35px 41px !important;
+  }
+  .swip {
+    height: 75% !important;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .padding {
+    padding: 4px 40px !important;
+  }
+  .swip {
+    height: 75% !important;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .padding {
+    padding: 36px 40px !important;
+  }
+  .swip {
+    height: 77% !important;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .padding {
+    padding: 36px 40px !important;
+  }
+  .swip {
+    height: 77% !important;
+  }
+}
+@media only screen and (max-width: 280px) {
+  .padding {
+    padding: 4px 40px !important;
+  }
+  .swip {
+    height: 76% !important;
+  }
+}
 @media only screen and (max-width: 750px) {
-    .animation2{
-        flex-direction: column;
-    }       
-    .matn{
-        margin-right: 0px !important;
-    }
-    .aks{
-        width: 60vw;
-    }
+  .animation2 {
+    flex-direction: column;
   }
+  .matn {
+    margin-right: 0px !important;
+  }
+  .aks {
+    width: 60vw;
+  }
+}
