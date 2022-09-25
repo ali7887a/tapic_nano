@@ -30,6 +30,7 @@
 .para {
   color: black;
   direction: rtl;
+  font-size: 15px;
 }
 .matn {
   margin-top: auto;
@@ -39,6 +40,9 @@
 .padding2 {
   padding: 0px 0px;
   height: 100px;
+  width: max-content;
+  height: max-content;
+  margin-top: -10px;
 }
 .img {
   margin-left: auto;
@@ -60,6 +64,9 @@
     .swip {
       height: 60% !important;
     }
+    .swip2 {
+      height: 72% !important;
+    }
   }
 }
 @media only screen and (max-width: 1280px) {
@@ -69,6 +76,9 @@
     }
     .swip {
       height: 76% !important;
+    }
+    .swip2 {
+      height: 68% !important;
     }
   }
 }
@@ -86,6 +96,16 @@
   }
   .swip {
     height: 74% !important;
+  }
+  .swip2 {
+    height: 64% !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  @media only screen and (max-height:600px) {
+    .swip2 {
+      height: 65% !important;
+    }
   }
 }
 @media only screen and (max-width: 1024px) {
@@ -130,6 +150,27 @@
     height: 77% !important;
   }
 }
+@media only screen and (max-width: 821px) {
+  @media only screen and (max-height: 1180px) {
+    .swip2 {
+      height: 70% !important;
+    }
+  }
+}
+@media only screen and (max-width: 812px) {
+  @media only screen and (max-height: 375px) {
+    .swip2 {
+      height: 57% !important;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  @media only screen and (max-height: 1024px) {
+    .swip2 {
+      height: 59% !important;
+    }
+  }
+}
 @media only screen and (max-width: 667px) {
   .padding {
     padding: 0px 38px !important;
@@ -165,6 +206,9 @@
   .swip {
     height: 75% !important;
   }
+  .swip2{
+    height: 56% !important;
+  }
 }
 @media only screen and (max-width: 375px) {
   .padding {
@@ -172,6 +216,9 @@
   }
   .swip {
     height: 75% !important;
+  }
+  .swip2{
+    height: 53% !important;
   }
 }
 @media only screen and (max-width: 360px) {
@@ -181,6 +228,9 @@
   .swip {
     height: 77% !important;
   }
+  .swip2{
+    height: 52% !important;
+  }
 }
 @media only screen and (max-width: 320px) {
   .padding {
@@ -188,6 +238,9 @@
   }
   .swip {
     height: 77% !important;
+  }
+  .swip2{
+    height: 51%;
   }
 }
 @media only screen and (max-width: 280px) {

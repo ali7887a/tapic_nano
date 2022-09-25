@@ -3,7 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
+import "swiper/css"; 
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
@@ -22,6 +22,7 @@ export default function TextCarousel() {
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
+          "background-color": "rgb(222, 222, 222)",
           marginTop: "20px",
           marginBottom: "20px",
         }}
@@ -32,7 +33,7 @@ export default function TextCarousel() {
         }}
         navigation={true}
         modules={[Parallax, Pagination, Navigation]}
-        className="mySwiper"
+        className={`${styles.swip2} ${"mySwiper"}`}
       >
         <div
           slot="container-start"

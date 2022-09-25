@@ -39,11 +39,12 @@ function AboveFooter() {
         />
       </div>
       <Dialog
-        fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
         style={{direction:"rtl"}}
+        fullWidth="sx"
+        maxWidth="sx"
       >
         <DialogTitle id="responsive-dialog-title" >کاربر گرامی: </DialogTitle>
         <DialogContent>
@@ -65,7 +66,7 @@ function AboveFooter() {
         <div class="card-body">
           <h5 class="card-title">مرکز CS</h5>
           <p class="card-text">
-            ارزش ها و احترام TOPICNANO VOC به عنوان بالاترین اولویت
+            ارزش ها و احترام TAPICNANO VOC به عنوان بالاترین اولویت
           </p>
           <button
             href="#"

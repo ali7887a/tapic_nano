@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,7 +17,7 @@ import styles from "../style/textCarousel.module.css";
 import { Parallax, Pagination, Navigation } from "swiper";
 
 export default function TextCarousel() {
-  const navigation = useNavigate()
+  const navigation = useNavigate();
 
   return (
     <>
@@ -41,15 +41,20 @@ export default function TextCarousel() {
           slot="container-start"
           className="parallax-bg"
           style={{
-            "background-image":
+            backgroundImage:
               "url(http://www.nanobrick.co.kr/wp/wp-content/uploads/2018/09/m_sec_02.jpg)",
             marginRight: "auto",
             marginLeft: "auto",
+            backgroundSize: "cover",
+            height:"100%"
           }}
           data-swiper-parallax="-23%"
         ></div>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/security')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/security")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه امنیتی
             </div>
@@ -71,7 +76,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/security/mpac')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/security/mpac")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه امنیتی{" "}
             </div>
@@ -92,7 +100,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/security/mcard')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/security/mcard")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه امنیتی
             </div>
@@ -114,7 +125,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/security/msecupaper')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/security/msecupaper")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه امنیتی
             </div>
@@ -135,7 +149,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/security/msecuPrint')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/security/msecuPrint")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه امنیتی
             </div>
@@ -157,7 +174,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/security/mcurrency')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/security/mcurrency")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه امنیتی
             </div>
@@ -178,7 +198,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/bio')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/bio")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه بیوزیستی
             </div>
@@ -198,7 +221,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/bio/purikit')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/bio/purikit")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه بیوزیستی
             </div>
@@ -212,13 +238,16 @@ export default function TextCarousel() {
                 استخراج پلاسمید با کارایی بالا است.
               </p>
             </div>
-            <div className={styles.icon} >
+            <div className={styles.icon}>
               <AddCircleIcon style={{ backgroundColor: "white" }} />
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/functional')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/functional")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه عملکردی
             </div>
@@ -238,7 +267,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/functional/mpaper')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/functional/mpaper")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه عملکردی
             </div>
@@ -258,7 +290,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/display')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/display")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه نمایش
             </div>
@@ -279,7 +314,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/display/etink')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/display/etink")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه نمایش
             </div>
@@ -300,7 +338,10 @@ export default function TextCarousel() {
           </div>
         </SwiperSlide>
         <SwiperSlide className={styles.padding}>
-          <div className={styles.animation} onClick={()=> navigation('/product/display/epink')}>
+          <div
+            className={styles.animation}
+            onClick={() => navigation("/product/display/epink")}
+          >
             <div className="title" data-swiper-parallax="-300">
               گروه نمایش
             </div>

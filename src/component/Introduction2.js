@@ -3,7 +3,7 @@ import styles from "../style/Introduction.module.css";
 import TextCarousel2 from "./TextCarousel2";
 function Introduction() {
   return (
-    <div className={styles.main2}>
+    <div className={styles.main2}> 
       <h1 style={{ textAlign: "center", color: "black" }}>
         فناوری‌های اصلی نانو پلتفرم فعال
       </h1>
