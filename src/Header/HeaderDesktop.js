@@ -156,7 +156,7 @@ const Header = () => {
                 >
                   <img
                     src={require('../component/images/logo.png')}
-                    style={{ width: "80px" }}
+                    style={{ width: "65px" }}
                   />
                 </Typography>
               </Tooltip>

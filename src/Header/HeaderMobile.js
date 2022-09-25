@@ -1,13 +1,14 @@
 import * as React from "react";
 import IconButton from "@mui/material/IconButton";
-import BubbleChartIcon from '@mui/icons-material/BubbleChart';
-import StorefrontIcon from '@mui/icons-material/Storefront';
+import BubbleChartIcon from "@mui/icons-material/BubbleChart";
+import StorefrontIcon from "@mui/icons-material/Storefront";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import LocalMallIcon from '@mui/icons-material/LocalMall';
-import RadioButtonCheckedTwoToneIcon from '@mui/icons-material/RadioButtonCheckedTwoTone';import OfflineBoltIcon from '@mui/icons-material/OfflineBolt';
-import LanguageIcon from '@mui/icons-material/Language';
+import LocalMallIcon from "@mui/icons-material/LocalMall";
+import RadioButtonCheckedTwoToneIcon from "@mui/icons-material/RadioButtonCheckedTwoTone";
+import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
+import LanguageIcon from "@mui/icons-material/Language";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -20,11 +21,10 @@ import Tooltip from "@mui/material/Tooltip";
 import { useState } from "react";
 import "../style.scss";
 import { Navbar, Stack } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   BottomNavigation,
   BottomNavigationAction,
-  Divider,
   List,
   ListItem,
   ListItemButton,
@@ -58,10 +58,17 @@ const Header = () => {
     >
       <List>
         {["IR", "PR"].map((text, index) => (
-          <ListItem key={text} disablePadding >
+          <ListItem key={text} disablePadding
+          as={Link}
+          to="ir"
+          style={{color:"black"}}>
             <ListItemButton>
-              <ListItemIcon  >
-                {index % 2 === 0 ? <RadioButtonCheckedTwoToneIcon style={{color:'black'}}/> : <RadioButtonCheckedTwoToneIcon style={{color:"black"}}/>}
+              <ListItemIcon>
+                {index % 2 === 0 ? (
+                  <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
+                ) : (
+                  <RadioButtonCheckedTwoToneIcon style={{ color: "black" }} />
+                )}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -84,16 +91,18 @@ const Header = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const navigation = useNavigate();
 
   return (
     <>
-      <Navbar sticky="top" style={{ backgroundColor: "white" }}>
+      <Navbar sticky="top" style={{ padding: "0px" }}>
         <AppBar
           position="static"
           style={{
-            backgroundColor: "rgba(0,0,0,0.9)",
+            backgroundColor: "rgba(0,0,0,1)",
             display: "flex",
             direction: "rtl",
+            borderRadius: "0px",
           }}
         >
           <Container maxWidth="lg">
@@ -122,11 +131,13 @@ const Header = () => {
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="تغییر زبان">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <LanguageIcon style={{color:"white" , marginTop:"7px"}} />
+                      <LanguageIcon
+                        style={{ color: "white", marginTop: "7px" }}
+                      />
                     </IconButton>
                   </Tooltip>
                   <Menu
-                    style={{ maxWidth: "80px"}}
+                    style={{ maxWidth: "80px" }}
                     sx={{ mt: "0px" }}
                     id="menu-appbar"
                     anchorEl={anchorElUser}
@@ -182,11 +193,11 @@ const Header = () => {
                     color: "white",
                     textDecoration: "none",
                   }}
-                  style={{justifyContent:"flex-end"}}
+                  style={{ justifyContent: "flex-end" }}
                 >
                   <img
                     src={require("../component/images/logo.png")}
-                    style={{ width: "150px" }}
+                    style={{ width: "50px" }}
                   />
                 </Typography>
               </Tooltip>
@@ -196,10 +207,10 @@ const Header = () => {
       </Navbar>
       <Navbar
         style={{
-          backgroundColor: "white",
           position: "fixed",
           bottom: 0,
           zIndex: 2,
+          padding: '0px'
         }}
       >
         <BottomNavigation
@@ -208,26 +219,36 @@ const Header = () => {
           onChange={handleChange}
           style={{
             color: "white",
-            backgroundColor: "rgba(0,0,0,0.9)",
+            backgroundColor: "rgba(0,0,0,1)",
             boxShadow:
               "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+              borderRadius:"0px"
           }}
         >
           <BottomNavigationAction
             label="پشتیبانی"
             value="recents"
+            onClick={() => {
+              navigation("/CS/productInquiry");
+            }}
             icon={<SupportAgentIcon />}
             style={{ color: "white", minWidth: "47px" }}
           />
           <BottomNavigationAction
             label="محصولات"
             value="favorites"
+            onClick={() => {
+              navigation("/product/security");
+            }}
             icon={<LocalMallIcon />}
             style={{ color: "white", minWidth: "47px" }}
           />
           <BottomNavigationAction
             label="خانه"
             value="home"
+            onClick={() => {
+              navigation("/");
+              }}
             icon={
               <Avatar sx={{ bgcolor: "white" }} style={{ fontSize: "large" }}>
                 <StorefrontIcon style={{ color: "black" }} />
@@ -238,13 +259,19 @@ const Header = () => {
           <BottomNavigationAction
             label="تکنولوژی"
             value="nearby"
-            icon={<OfflineBoltIcon/>}
+            icon={<OfflineBoltIcon />}
             style={{ color: "white", minWidth: "47px" }}
+            onClick={() => {
+              navigation("/technology/nanoplatform");
+            }}
           />
           <BottomNavigationAction
             label="CS"
             value="folder"
-            icon={<BubbleChartIcon/>}
+            onClick={() => {
+              navigation("/CS/productInquiry");
+            }}
+            icon={<BubbleChartIcon />}
             style={{ color: "white", minWidth: "30px" }}
           />
         </BottomNavigation>

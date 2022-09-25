@@ -15,8 +15,9 @@ function SliderCarousel() {
           className="d-block w-100"
           src={require("./images/vis_01.jpg")}
           alt="First slide"
+          style={{height:"inherit"}}
         />
-        <Carousel.Caption style={{ marginTop: "auto", marginBottom: "auto" }}>
+        <Carousel.Caption className={styles.caption}>
           <p>نوآوری فراتر از تصور!!</p>
           <h1 className={styles.h1}>تاپیک نانو</h1>
         </Carousel.Caption>
@@ -26,9 +27,10 @@ function SliderCarousel() {
           className="d-block w-100"
           src={require("./images/vis_02.jpg")}
           alt="Second slide"
+          style={{height:"inherit"}}
         />
 
-        <Carousel.Caption style={{ marginTop: "auto", marginBottom: "auto" }}>
+        <Carousel.Caption className={styles.caption}>
           <p>الهام گرفته از:</p>
           <h1 className={styles.h1}>دل طبیعت</h1>
         </Carousel.Caption>
@@ -38,9 +40,10 @@ function SliderCarousel() {
           className="d-block w-100"
           src={require("./images/vis_03.jpg")}
           alt="Third slide"
+          style={{height:"inherit"}}
         />
 
-        <Carousel.Caption style={{ marginTop: "auto", marginBottom: "auto" }}>
+        <Carousel.Caption className={styles.caption}>
           <p>
             پیشرفت مداوم از طریق
           </p>
@@ -52,9 +55,10 @@ function SliderCarousel() {
           className="d-block w-100"
           src={require("./images/main_tech.jpg")}
           alt="Third slide"
+          style={{height:"inherit"}}
         />
 
-        <Carousel.Caption style={{ marginTop: "auto", marginBottom: "auto" }}>
+        <Carousel.Caption className={styles.caption}>
           <p>
             هدایت از راه
           </p>
