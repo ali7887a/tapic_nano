@@ -11,7 +11,7 @@ export default function PaginationControlled() {
   };
 
   return (
-    <Stack spacing={2} alignItems="center">
+    <Stack spacing={2} alignItems="center" style={{marginBottom:"40px"}}>
       {page===1&&<List1/>}
       {page===2&&<List2/>}
       <Pagination count={2} page={page} onChange={handleChange}/>

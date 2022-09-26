@@ -91,7 +91,7 @@ function Videos() {
         </Card>
       </Col>
       <Col>
-        <Card style={{ border: "none" }} onClick={()=>setModalShow(true)}>
+        <Card style={{ border: "none" ,marginBottom:"40px"}} onClick={()=>setModalShow(true)}>
           <Card.Img variant="top" src={require("./images/v6.png")} />
           <span className={styles.play}></span>
           <Card.Body>

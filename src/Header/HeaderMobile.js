@@ -21,7 +21,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { useState } from "react";
 import "../style.scss";
 import { Navbar, Stack } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   BottomNavigation,
   BottomNavigationAction,
@@ -58,10 +58,13 @@ const Header = () => {
     >
       <List>
         {["IR", "PR"].map((text, index) => (
-          <ListItem key={text} disablePadding
-          as={Link}
-          to="ir"
-          style={{color:"black"}}>
+          <ListItem
+            key={text}
+            disablePadding
+            as={Link}
+            to="ir"
+            style={{ color: "black" }}
+          >
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? (
@@ -87,12 +90,11 @@ const Header = () => {
   };
   //for footer
   const [value, setValue] = useState("home");
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const navigation = useNavigate();
 
+  const navigation = useNavigate();
   return (
     <>
       <Navbar sticky="top" style={{ padding: "0px" }}>
@@ -210,24 +212,24 @@ const Header = () => {
           position: "fixed",
           bottom: 0,
           zIndex: 2,
-          padding: '0px'
+          padding: "0px",
         }}
       >
         <BottomNavigation
           sx={{ width: "100vw" }}
           value={value}
-          onChange={handleChange}
+          onChange= {handleChange}
           style={{
             color: "white",
             backgroundColor: "rgba(0,0,0,1)",
             boxShadow:
               "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-              borderRadius:"0px"
+            borderRadius: "0px",
           }}
         >
           <BottomNavigationAction
             label="پشتیبانی"
-            value="recents"
+            value="پشتیبانی"
             onClick={() => {
               navigation("/CS/productInquiry");
             }}
@@ -236,7 +238,7 @@ const Header = () => {
           />
           <BottomNavigationAction
             label="محصولات"
-            value="favorites"
+            value="محصولات"
             onClick={() => {
               navigation("/product/security");
             }}
@@ -245,10 +247,10 @@ const Header = () => {
           />
           <BottomNavigationAction
             label="خانه"
-            value="home"
+            value="خانه"
             onClick={() => {
               navigation("/");
-              }}
+            }}
             icon={
               <Avatar sx={{ bgcolor: "white" }} style={{ fontSize: "large" }}>
                 <StorefrontIcon style={{ color: "black" }} />
@@ -258,7 +260,7 @@ const Header = () => {
           />
           <BottomNavigationAction
             label="تکنولوژی"
-            value="nearby"
+            value="تکنولوژی"
             icon={<OfflineBoltIcon />}
             style={{ color: "white", minWidth: "47px" }}
             onClick={() => {
@@ -267,7 +269,7 @@ const Header = () => {
           />
           <BottomNavigationAction
             label="CS"
-            value="folder"
+            value="CS"
             onClick={() => {
               navigation("/CS/productInquiry");
             }}

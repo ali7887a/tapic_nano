@@ -40,7 +40,7 @@
   @media only screen and (max-height:800px) {
     .main {
       height: 63vh !important;
-    }
+    } 
     .main2 {
       height: 100vh !important;
     }
@@ -227,6 +227,13 @@
     height: 65vh !important;
   }
 }
+@media only screen and (max-width: 480px) {
+  @media only screen and (max-height:854px) {
+    .main2 {
+      height: 86vh !important;
+    }
+  }
+}
 @media only screen and (max-width: 445px) {
   .main2 {
     height: 133vh !important;
@@ -262,6 +269,13 @@
 @media only screen and (max-width: 388px) {
   .main2 {
     height: 142vh !important;
+  }
+}
+@media only screen and (max-width: 460px) {
+  @media only screen and (max-height:890px) {
+    .main2 {
+      height: 100vh !important;
+    }
   }
 }
 @media only screen and (max-width: 393px) {

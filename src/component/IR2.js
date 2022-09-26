@@ -144,7 +144,7 @@ function IR() {
           </Card>
           <Divider />
           <div style={{textAlign:"center" , marginTop:"20px"}}>
-          <Button variant="danger" onClick={()=> navigation('/ir')} >مشاهده لیست</Button>{' '}
+          <Button variant="danger" style={{marginBottom:"40px"}} onClick={()=> navigation('/ir')} >مشاهده لیست</Button>{' '}
           </div>
         </TabPanel>
         <TabPanel value={value} index={1}>

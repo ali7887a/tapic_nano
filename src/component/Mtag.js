@@ -3,6 +3,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
+import styles from '../style/Security.module.css'
 import { useLocation , useNavigate } from "react-router-dom";
 function Mtag() {
   const navigation = useNavigate();
@@ -56,10 +57,10 @@ function Mtag() {
           <Card.Img variant="top" src={require("./images/mtag/1.jpg")} />
         </Card.Body>
       </Card>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <img src={require("./images/mtag/2.jpg")} />
-        <img src={require("./images/mtag/3.jpg")} />
-        <img src={require("./images/mtag/4.jpg")} />
+      <div className={styles.rowimages}>
+        <img className={styles.img} src={require("./images/mtag/2.jpg")} />
+        <img className={styles.img} src={require("./images/mtag/3.jpg")} />
+        <img className={styles.img} src={require("./images/mtag/4.jpg")} />
       </div>
       <Card style={{ width: "98vw", border: "none" }}>
         <Card.Body>
@@ -144,7 +145,7 @@ function Mtag() {
           >
             بررسی اجمالی
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row xs={1} md={3} className={`${styles.card} ${"g-10"}`} style={{ marginTop: "25px" }}>
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/mtag/12.jpg")} />
@@ -210,13 +211,13 @@ function Mtag() {
         <div
           style={{
             textAlign: "center",
-            marginBottom: "20px",
+            marginBottom: "60px",
             display: "flex",
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="lg" onClick={()=> navigation ('/CS/productInquiry')}>درخواست کالا</Button>
-          <Button variant="danger" size="lg" onClick={()=> navigation ('/technology/nanoplatform')}>فناوری کاربردی: MTX</Button>
+          <Button variant="danger" size="medium" onClick={()=> navigation ('/CS/productInquiry')}>درخواست کالا</Button>
+          <Button variant="danger" size="medium" onClick={()=> navigation ('/technology/nanoplatform')}>فناوری کاربردی: MTX</Button>
         </div>
       </Card>
     </>
