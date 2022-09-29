@@ -25,4 +25,47 @@
 .main{
     color:white;
     direction: rtl;
-}
+} 
+@media only screen and (max-width: 600px) {
+    .paragraph2{
+        direction: rtl;
+        margin-top: 25px;
+        font-size: medium;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .card{
+        --bs-gutter-x: -13.5rem;
+    }
+    .title{
+      font-size: 40px; 
+    }
+  }
+@media only screen and (max-width: 615px) {
+    .card{
+        --bs-gutter-x: 1.5rem;
+    }
+    .title{
+      font-size: 30px;
+    }
+  }
+  .card1 , .card3 , .card6 , .card8{
+    background-color: #e7302a;
+    color: white
+  }
+  .col{
+    padding: 0px;
+  }
+  @media only screen and (max-width: 768px) {
+    .card5 , .card7{
+      background-color: #e7302a;
+    color: white
+    }
+    .card7{
+      border:none
+    }
+    .card6 , .card8{
+      background-color: white;
+      color:black
+    }
+  }

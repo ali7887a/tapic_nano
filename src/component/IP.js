@@ -1,29 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 import styles from "../style/MTX.module.css";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { Divider } from "@mui/material";
-import  Button  from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 import { useLocation } from "react-router-dom";
 function IP() {
+  // ***** Loading
+  const [state, setState] = useState();
+  const loadingContext = useLoadingContext();
+  const loading = async () => {
+    const data = await loadData();
+    setState(data);
+    loadingContext.done();
+  };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  // ***************
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/technology")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/technology")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <div>
@@ -31,15 +47,15 @@ function IP() {
       <p className={styles.paragraph}>
         نانوتاپیک پیشرفته ترین فناوری ها را ایمن کرده !!
       </p>
-      <Row xs={1} md={4} className="g-4">
-        <Col>
-          <Card style={{ backgroundColor: "#e7302a", color: "white" }}>
+      <Row xs={1} md={4} className="g-4" style={{width:"100%"}}>
+        <Col className={styles.col}>
+          <Card className={styles.card1}>
             <Card.Body>
               <Card.Title
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "20px",
+                  fontSize: "15px",
                 }}
               >
                 درخواست ثبت اختراع
@@ -49,7 +65,7 @@ function IP() {
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "60px",
+                  fontSize: "45px",
                 }}
               >
                 264
@@ -57,14 +73,14 @@ function IP() {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
-          <Card>
+        <Col className={styles.col}>
+          <Card className={styles.card2}>
             <Card.Body>
               <Card.Title
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "20px",
+                  fontSize: "15px",
                 }}
               >
                 ثبت اختراع
@@ -74,7 +90,7 @@ function IP() {
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "60px",
+                  fontSize: "45px",
                 }}
               >
                 75
@@ -82,14 +98,14 @@ function IP() {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
-          <Card style={{ backgroundColor: "#e7302a", color: "white" }}>
+        <Col className={styles.col}>
+          <Card className={styles.card3}>
             <Card.Body>
               <Card.Title
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "20px",
+                  fontSize: "15px",
                 }}
               >
                 درخواست ثبت اختراع سودمند
@@ -99,7 +115,7 @@ function IP() {
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "60px",
+                  fontSize: "45px",
                 }}
               >
                 15
@@ -107,14 +123,14 @@ function IP() {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
-          <Card>
+        <Col className={styles.col}>
+          <Card className={styles.card4}>
             <Card.Body>
               <Card.Title
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "20px",
+                  fontSize: "15px",
                 }}
               >
                 ثبت اختراع سودمند{" "}
@@ -124,7 +140,7 @@ function IP() {
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "60px",
+                  fontSize: "45px",
                 }}
               >
                 12
@@ -132,24 +148,24 @@ function IP() {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
-          <Card>
+        <Col className={styles.col}>
+          <Card className={styles.card5}>
             <Card.Body>
               <Card.Title
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "20px",
+                  fontSize: "15px",
                 }}
               >
-اپلیکیشن علامت تجاری
+                اپلیکیشن علامت تجاری
               </Card.Title>
               <Divider style={{ backgroundColor: "black" }} />
               <Card.Text
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "60px",
+                  fontSize: "45px",
                 }}
               >
                 57
@@ -157,24 +173,24 @@ function IP() {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
-          <Card style={{ backgroundColor: "#e7302a", color: "white" }}>
+        <Col className={styles.col}>
+          <Card className={styles.card6}>
             <Card.Body>
               <Card.Title
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "20px",
+                  fontSize: "15px",
                 }}
               >
-ثبت علامت تجاری
+                ثبت علامت تجاری
               </Card.Title>
               <Divider style={{ backgroundColor: "white" }} />
               <Card.Text
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "60px",
+                  fontSize: "45px",
                 }}
               >
                 40
@@ -182,47 +198,49 @@ function IP() {
             </Card.Body>
           </Card>
         </Col>
-        <Card>
+        <Col className={styles.col}>
+        <Card className={styles.card7}>
           <Card.Body>
             <Card.Title
               style={{
                 textAlign: "center",
                 fontWeight: "bolder",
-                fontSize: "20px",
+                fontSize: "15px",
               }}
             >
-برنامه طراحی
+              برنامه طراحی
             </Card.Title>
             <Divider style={{ backgroundColor: "black" }} />
             <Card.Text
               style={{
                 textAlign: "center",
                 fontWeight: "bolder",
-                fontSize: "60px",
+                fontSize: "45px",
               }}
             >
               18
             </Card.Text>
           </Card.Body>
         </Card>
-        <Col>
-          <Card style={{ backgroundColor: "#e7302a", color: "white" }}>
+        </Col>
+        <Col className={styles.col}>
+          <Card className={styles.card8}>
             <Card.Body>
               <Card.Title
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "20px",
+                  fontSize: "15px",
                 }}
               >
-ثبت طراحی
+                ثبت طراحی
               </Card.Title>
               <Divider style={{ backgroundColor: "white" }} />
               <Card.Text
                 style={{
                   textAlign: "center",
                   fontWeight: "bolder",
-                  fontSize: "60px",
+                  fontSize: "45px",
                 }}
               >
                 17
@@ -231,8 +249,12 @@ function IP() {
           </Card>
         </Col>
       </Row>
-      <div style={{marginTop:"40px" , textAlign:'center', marginBottom:"40px"}}>
-      <Button size="lg" variant="danger">جایزه ها و گواهینامه ها</Button>{' '}
+      <div
+        style={{ marginTop: "40px", textAlign: "center", marginBottom: "60px" }}
+      >
+        <Button size="medium" variant="danger">
+          جایزه ها و گواهینامه ها
+        </Button>{" "}
       </div>
     </div>
   );

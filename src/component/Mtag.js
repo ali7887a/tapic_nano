@@ -3,27 +3,44 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-import styles from '../style/Security.module.css'
-import { useLocation , useNavigate } from "react-router-dom";
+import styles from "../style/Security.module.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 function Mtag() {
+  // ***** Loading
+  const [state, setState] = useState();
+  const loadingContext = useLoadingContext();
+  const loading = async () => {
+    const data = await loadData();
+    setState(data);
+    loadingContext.done();
+  };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  // ***************
   const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -46,8 +63,8 @@ function Mtag() {
             }}
           >
             M-Tag نماینده راه حل احراز هویت واقعی است که توسط یک و تنها فناوری
-            نوآورانه MTX تاپیک نانو استفاده شده است که امکان تغییر رنگ یا الگو را
-            توسط میدان مغناطیسی فراهم می کند.
+            نوآورانه MTX تاپیک نانو استفاده شده است که امکان تغییر رنگ یا الگو
+            را توسط میدان مغناطیسی فراهم می کند.
             <br />
             M-Tag برای نشان دادن برچسب محافظت از برند طراحی شده است که می تواند
             فوراً تغییر رنگ برچسب را توسط آهنرباهایی که در زندگی روزمره یافت می
@@ -145,7 +162,12 @@ function Mtag() {
           >
             بررسی اجمالی
           </Divider>
-          <Row xs={1} md={3} className={`${styles.card} ${"g-10"}`} style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/mtag/12.jpg")} />
@@ -216,8 +238,20 @@ function Mtag() {
             justifyContent: "space-evenly",
           }}
         >
-          <Button variant="danger" size="medium" onClick={()=> navigation ('/CS/productInquiry')}>درخواست کالا</Button>
-          <Button variant="danger" size="medium" onClick={()=> navigation ('/technology/nanoplatform')}>فناوری کاربردی: MTX</Button>
+          <Button
+            variant="danger"
+            size="medium"
+            onClick={() => navigation("/CS/productInquiry")}
+          >
+            درخواست کالا
+          </Button>
+          <Button
+            variant="danger"
+            size="medium"
+            onClick={() => navigation("/technology/nanoplatform")}
+          >
+            فناوری کاربردی: MTX
+          </Button>
         </div>
       </Card>
     </>

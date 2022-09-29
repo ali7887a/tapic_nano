@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styles from "../style/IR.module.css";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
@@ -11,6 +10,9 @@ import Card from "react-bootstrap/Card";
 import PaginationControlled from "./pagination";
 import { Button } from "react-bootstrap";
 import {useNavigate} from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   return (
@@ -44,6 +46,20 @@ function a11yProps(index) {
 }
 
 function IR() {
+   // ***** Loading
+   const [state, setState] = useState();
+   const loadingContext = useLoadingContext();
+   const loading = async () => {
+     const data = await loadData();
+     setState(data);
+     loadingContext.done();
+   };
+ 
+   useEffect(() => {
+     loading();
+   }, []);
+ 
+   // ***************
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);

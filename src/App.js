@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-loading";
 import BioGroup from "./component/BioGroup";
 import Display from "./component/Display";
 import Footer from "./component/Footer";
@@ -24,8 +25,9 @@ import Mcard from "./component/Mcard";
 import MsecuPaper from "./component/MsecuPaper";
 import Mcurrency from "./component/Mcurrency";
 import MsecuPrint from "./component/MsecuPrint";
-import Technology from "./component/Technology";
 import NanoPlatform from "./component/NanoPlatform";
+import Technology from "./component/Technology";
+import NotFound from "./component/NotFound";
 import MTX from "./component/MTX";
 import MPD from "./component/MPD";
 import SPM from "./component/SPM";
@@ -51,49 +53,50 @@ const App = () => {
       <HashRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="ir" element={<IR />} />
-          <Route path="ir2" element={<IR2 />} />
+          <Route path="/" element={<HomeScreen />} loading/>
+          <Route path="ir" element={<IR />} loading/>
+          <Route path="ir2" element={<IR2 />} loading />
           <Route path="Product" element={<Product />}>
             <Route path="security" element={<Security />}>
-              <Route index element={<Mtag />} />
-              <Route path="Mpac" element={<Mpac />} />
-              <Route path="Mcard" element={<Mcard />} />
-              <Route path="Msecupaper" element={<MsecuPaper />} />
-              <Route path="Msecuprint" element={<MsecuPrint />} />
-              <Route path="Mcurrency" element={<Mcurrency />} />
+              <Route index element={<Mtag />} loading />
+              <Route path="Mpac" element={<Mpac />} loading />
+              <Route path="Mcard" element={<Mcard />} loading />
+              <Route path="Msecupaper" element={<MsecuPaper />} loading />
+              <Route path="Msecuprint" element={<MsecuPrint />} loading />
+              <Route path="Mcurrency" element={<Mcurrency />} loading />
             </Route>
             <Route path="Bio" element={<BioGroup />}>
-              <Route index element={<MBead />} />
-              <Route path="purikit" element={<Mpurikit />} />
+              <Route index element={<MBead />} loading/>
+              <Route path="purikit" element={<Mpurikit />} loading/>
             </Route>
             <Route path="display" element={<Display />}>
-              <Route index element={<ExInk />} />
-              <Route path="EpInk" element={<EpInk />} />
-              <Route path="EtInk" element={<EtInk />} />
+              <Route index element={<ExInk />} loading />
+              <Route path="EpInk" element={<EpInk />} loading/>
+              <Route path="EtInk" element={<EtInk />} loading/>
             </Route>
             <Route path="functional" element={<Functional />}>
-              <Route index element={<Mskin />} />
-              <Route path="mpaper" element={<Mpaper />} />
+              <Route index element={<Mskin />} loading/>
+              <Route path="mpaper" element={<Mpaper />} loading/>
             </Route>
           </Route>
           <Route path="technology" element={<Technology />}>
             <Route path="nanoplatform" element={<NanoPlatform />}>
-              <Route index element={<MTX />} />
-              <Route path="MPD" element={<MPD />} />
-              <Route path="SPM" element={<SPM />} />
-              <Route path="ETX" element={<ETX />} />
-              <Route path="EPD" element={<EPD />} />
-              <Route path="ETD" element={<ETD />} />
+              <Route index element={<MTX />}loading />
+              <Route path="MPD" element={<MPD />} loading />
+              <Route path="SPM" element={<SPM />} loading />
+              <Route path="ETX" element={<ETX />} loading />
+              <Route path="EPD" element={<EPD />} loading />
+              <Route path="ETD" element={<ETD />} loading />
             </Route>
-            <Route path="IP" element={<IP />} />
+            <Route path="IP" element={<IP />} loading />
           </Route>
           <Route path="CS" element={<CS />}>
-            <Route path="productInquiry" element={<ProductInquiry />}/>
-            <Route path="IRInquiry" element={<IRInquiry />} />
-            <Route path="UnfairTrading" element={<UnfairTrading />} />
-            <Route path="OtherInquiry" element={<OtherInquiry />} />
+            <Route path="productInquiry" element={<ProductInquiry />} loading />
+            <Route path="IRInquiry" element={<IRInquiry />} loading/>
+            <Route path="UnfairTrading" element={<UnfairTrading />} loading/>
+            <Route path="OtherInquiry" element={<OtherInquiry />} loading/>
           </Route>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
         <ScrollButton />
         {width > breakpoint && <Footer />}

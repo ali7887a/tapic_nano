@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 import styles from "../style/MTX.module.css";
 import CircleIcon from "@mui/icons-material/Circle";
 import Col from "react-bootstrap/Col";
@@ -7,23 +9,37 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { useLocation } from "react-router-dom";
 function ETX() {
+  // ***** Loading
+  const [state, setState] = useState();
+  const loadingContext = useLoadingContext();
+  const loading = async () => {
+    const data = await loadData();
+    setState(data);
+    loadingContext.done();
+  };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  // ***************
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/technology")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/technology")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -41,7 +57,11 @@ function ETX() {
       >
         <Row className="no-gutters">
           <Col md={5} lg={5}>
-            <Card.Img variant="top" src={require("./images/ETX.jpg")} />
+            <Card.Img
+              variant="top"
+              style={{ width: "100%", height: "100%" }}
+              src={require("./images/ETX.jpg")}
+            />
           </Col>
           <Col>
             <Card.Body>
@@ -69,7 +89,7 @@ function ETX() {
       <Row
         xs={1}
         md={3}
-        className="g-6"
+        className={`${styles.card} ${"g-10"}`}
         style={{ marginTop: "45px", marginLeft: "35px", marginRight: "35px" }}
       >
         <Col>
@@ -162,13 +182,18 @@ function ETX() {
           >
             محصول قابل اجرا
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/ETX/4.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  Skim قابل تغییر رنگ برای برنامه IT
+                    Skim قابل تغییر رنگ برای برنامه IT
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -178,7 +203,7 @@ function ETX() {
                 <Card.Img variant="top" src={require("./images/ETX/5.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  کاشی داخلی قابل تنظیم رنگ
+                    کاشی داخلی قابل تنظیم رنگ
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -188,7 +213,7 @@ function ETX() {
                 <Card.Img variant="top" src={require("./images/ETX/6.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  پنجره هوشمند قابل تنظیم رنگ
+                    پنجره هوشمند قابل تنظیم رنگ
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -207,13 +232,18 @@ function ETX() {
           >
             بخش قابل اجرا
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px" , marginBottom:'60px' }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/ETX/7.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  لوازم الکترونیکی
+                    لوازم الکترونیکی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -223,7 +253,7 @@ function ETX() {
                 <Card.Img variant="top" src={require("./images/ETX/8.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  پنجره معماری
+                    پنجره معماری
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -233,7 +263,7 @@ function ETX() {
                 <Card.Img variant="top" src={require("./images/ETX/9.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  مواد داخلی
+                    مواد داخلی
                   </Card.Text>
                 </Card.Body>
               </Card>

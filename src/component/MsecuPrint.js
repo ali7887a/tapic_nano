@@ -3,8 +3,26 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
+import styles from '../style/Security.module.css'
 import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 function MsecuPrint() {
+    // ***** Loading
+    const [state, setState] = useState();
+    const loadingContext = useLoadingContext();
+    const loading = async () => {
+      const data = await loadData();
+      setState(data);
+      loadingContext.done();
+    };
+  
+    useEffect(() => {
+      loading();
+    }, []);
+  
+    // ***************
   const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
@@ -44,7 +62,7 @@ function MsecuPrint() {
               marginRight: "10px",
             }}
           >
-            -SecuPrint اولین مواد نانو قابل تنظیم رنگی در جهان با شدت سیگنال
+            M-SecuPrint اولین مواد نانو قابل تنظیم رنگی در جهان با شدت سیگنال
             مغناطیسی است و امکان رشد نامحدود در زمینه‌های مختلف مانند امنیت و
             حوزه‌های علمی زنده، از جمله راه‌حل احراز هویت نام تجاری برای اطمینان
             از قابلیت اطمینان محصول، راه‌حل بسته‌بندی امنیتی را دارد. مواد قالب
@@ -59,7 +77,7 @@ function MsecuPrint() {
           <Row
             xs={1}
             md={3}
-            className="g-6"
+            className={`${styles.card} ${"g-10"}`}
             style={{ marginTop: "25px", justifyContent: "space-around" }}
           >
             <Col>
@@ -185,21 +203,21 @@ function MsecuPrint() {
         <div
           style={{
             textAlign: "center",
-            marginBottom: "20px",
+            marginBottom: "60px",
             display: "flex",
             justifyContent: "space-evenly",
           }}
         >
           <Button
             variant="danger"
-            size="lg"
+            size="medium"
             onClick={() => navigation("/CS/productInquiry")}
           >
             درخواست کالا
           </Button>
           <Button
             variant="danger"
-            size="lg"
+            size="medium"
             onClick={() => navigation("/technology/nanoplatform")}
           >
             فناوری کاربردی: MTX

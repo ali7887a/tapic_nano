@@ -5,24 +5,41 @@ import { Divider } from "@mui/material";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 function MTX() {
+  // ***** Loading
+  const [state, setState] = useState();
+  const loadingContext = useLoadingContext();
+  const loading = async () => {
+    const data = await loadData();
+    setState(data);
+    loadingContext.done();
+  };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  // ***************
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/technology")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/technology")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -40,7 +57,11 @@ function MTX() {
       >
         <Row className="no-gutters">
           <Col md={5} lg={5}>
-            <Card.Img variant="top" src={require("./images/MTX.jpg")} />
+            <Card.Img
+              variant="top"
+              style={{ width: "100%", height: "100%" }}
+              src={require("./images/MTX.jpg")}
+            />
           </Col>
           <Col>
             <Card.Body>
@@ -115,7 +136,12 @@ function MTX() {
           >
             محصول قابل اجرا
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/MTX/4.jpg")} />
@@ -190,13 +216,18 @@ function MTX() {
           >
             بخش قابل اجرا
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px", marginBottom: "60px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/MTX/10.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  حفاظت از برند: احراز هویت واقعی
+                    حفاظت از برند: احراز هویت واقعی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -206,7 +237,7 @@ function MTX() {
                 <Card.Img variant="top" src={require("./images/MTX/11.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  اسکناس مالی
+                    اسکناس مالی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -216,7 +247,7 @@ function MTX() {
                 <Card.Img variant="top" src={require("./images/MTX/12.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  امنیت اسناد
+                    امنیت اسناد
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -226,7 +257,7 @@ function MTX() {
                 <Card.Img variant="top" src={require("./images/MTX/13.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  قطعات خودرو
+                    قطعات خودرو
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -236,7 +267,7 @@ function MTX() {
                 <Card.Img variant="top" src={require("./images/MTX/14.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  لوازم زندگی
+                    لوازم زندگی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -246,7 +277,7 @@ function MTX() {
                 <Card.Img variant="top" src={require("./images/MTX/15.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  تجهیزات پزشکی
+                    تجهیزات پزشکی
                   </Card.Text>
                 </Card.Body>
               </Card>

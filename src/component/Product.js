@@ -10,7 +10,7 @@ function Product() {
   const navigation = useNavigate();
   return (
     <>
-      <div className={styles.showcase}>
+      <div className={styles.showcase}> 
         <h1>محصولات</h1>
       </div>
       <div >

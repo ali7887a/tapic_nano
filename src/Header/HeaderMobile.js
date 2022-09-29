@@ -173,7 +173,7 @@ const Header = () => {
               <Tooltip title="خانه">
                 <Typography
                   as={Link}
-                  to="\"
+                  to="/" 
                   sx={{
                     mr: 0.5,
                   }}
@@ -186,7 +186,8 @@ const Header = () => {
                   variant="h5"
                   noWrap
                   component="a"
-                  href="/"
+                  as={Link}
+                  to="/" 
                   sx={{
                     mr: 2,
                     display: { xs: "flex", md: "none" },

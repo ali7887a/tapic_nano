@@ -30,22 +30,47 @@
     .img{
         width: 70%;
     }
+
   }
 @media only screen and (max-width: 768px) {
     .card{
         --bs-gutter-x: -13.5rem;
+    }
+    .title{
+      font-size: 40px; 
     }
   }
 @media only screen and (max-width: 615px) {
     .card{
         --bs-gutter-x: 1.5rem;
     }
+    .title{
+      font-size: 30px;
+    }
   }
 .box{
     display: flex;
 }
+.firstButton{
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.secondButton{
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
 @media only screen and (max-width: 500px) {
     .box{
         flex-direction: column;
+    }
+    .firstButton{
+      border-top-right-radius: 8px !important;
+      border-bottom-right-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+    }
+    .secondButton{
+      border-bottom-left-radius: 8px !important;
+      border-top-left-radius: 0px !important;
+      border-top-right-radius: 0px !important;
     }
   }

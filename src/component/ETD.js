@@ -5,7 +5,24 @@ import { Divider } from "@mui/material";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 function ETD() {
+  // ***** Loading
+  const [state, setState] = useState();
+  const loadingContext = useLoadingContext();
+  const loading = async () => {
+    const data = await loadData();
+    setState(data);
+    loadingContext.done();
+  };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  // ***************
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
@@ -38,7 +55,11 @@ function ETD() {
       >
         <Row className="no-gutters">
           <Col md={5} lg={5}>
-            <Card.Img variant="top" src={require("./images/ETD/ETD.jpg")} />
+            <Card.Img
+              variant="top"
+              style={{ width: "100%", height: "100%" }}
+              src={require("./images/ETD/ETD.jpg")}
+            />
           </Col>
           <Col>
             <Card.Body>
@@ -67,7 +88,7 @@ function ETD() {
       <Row
         xs={1}
         md={3}
-        className="g-6"
+        className={`${styles.card} ${"g-10"}`}
         style={{ marginTop: "45px", marginLeft: "35px", marginRight: "35px" }}
       >
         <Col>
@@ -112,7 +133,12 @@ function ETD() {
           >
             محصول قابل اجرا
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/ETD/4.jpg")} />
@@ -157,7 +183,12 @@ function ETD() {
           >
             بخش قابل اجرا
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px", marginBottom: "60px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/ETD/7.jpg")} />

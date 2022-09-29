@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import styles from "../style/IR.module.css";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
@@ -10,7 +9,9 @@ import Chip from "@mui/material/Chip";
 import Videos from "./Videos";
 import PaginationControlled from "./pagination";
 import Modal from "react-bootstrap/Modal";
-
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 // modal ********************
 function MyVerticallyCenteredModal(props) {
   return (
@@ -65,6 +66,20 @@ function a11yProps(index) {
 }
 
 function IR() {
+   // ***** Loading
+   const [state, setState] = useState();
+   const loadingContext = useLoadingContext();
+   const loading = async () => {
+     const data = await loadData();
+     setState(data);
+     loadingContext.done();
+   };
+ 
+   useEffect(() => {
+     loading();
+   }, []);
+ 
+   // ***************
   const [value, setValue] = React.useState(0);
   const [modalShow, setModalShow] = React.useState(false);
   useEffect(() => {

@@ -3,9 +3,27 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
+import styles from "../style/Security.module.css";
 import Table from "react-bootstrap/Table";
 import { useLocation , useNavigate} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 function Mskin() {
+    // ***** Loading
+    const [state, setState] = useState();
+    const loadingContext = useLoadingContext();
+    const loading = async () => {
+      const data = await loadData();
+      setState(data);
+      loadingContext.done();
+    };
+  
+    useEffect(() => {
+      loading();
+    }, []);
+  
+    // ***************
   const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
@@ -55,7 +73,7 @@ function Mskin() {
           <Row
             xs={1}
             md={3}
-            className="g-6"
+            className={`${styles.card} ${"g-10"}`}
             style={{ marginTop: "25px", justifyContent: "space-around" }}
           >
             <Col>
@@ -131,7 +149,8 @@ function Mskin() {
           >
             بخش قابل اجرا{" "}
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row xs={1} md={3}             className={`${styles.card} ${"g-10"}`}
+ style={{ marginTop: "25px" }}>
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/Mskin/3.jpg")} />
@@ -167,21 +186,21 @@ function Mskin() {
         <div
           style={{
             textAlign: "center",
-            marginBottom: "20px",
+            marginBottom: "60px",
             display: "flex",
             justifyContent: "space-evenly",
           }}
         >
           <Button
             variant="danger"
-            size="lg"
+            size="medium"
             onClick={() => navigation("/CS/productInquiry")}
           >
             درخواست کالا
           </Button>
           <Button
             variant="danger"
-            size="lg"
+            size="medium"
             onClick={() => navigation("/technology/nanoplatform/MPD")}
           >
             فناوری کاربردی: MPD

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 import styles from "../style/MTX.module.css";
 import Col from "react-bootstrap/Col";
 import { Divider } from "@mui/material";
@@ -6,23 +8,37 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import { useLocation } from "react-router-dom";
 function EPD() {
+  // ***** Loading
+  const [state, setState] = useState();
+  const loadingContext = useLoadingContext();
+  const loading = async () => {
+    const data = await loadData();
+    setState(data);
+    loadingContext.done();
+  };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  // ***************
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/technology")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/technology")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -38,7 +54,11 @@ function EPD() {
       >
         <Row className="no-gutters">
           <Col md={5} lg={5}>
-            <Card.Img variant="top" src={require("./images/EPD/EPD.jpg")} />
+            <Card.Img
+              variant="top"
+              style={{ width: "100%", height: "100%" }}
+              src={require("./images/EPD/EPD.jpg")}
+            />
           </Col>
           <Col>
             <Card.Body>
@@ -82,7 +102,7 @@ function EPD() {
           <Card style={{ border: "none" }}>
             <Card.Body>
               <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-              میکرو کپسول EPD
+                میکرو کپسول EPD
               </Card.Text>
             </Card.Body>
             <Card.Img variant="top" src={require("./images/EPD/2.jpg")} />
@@ -92,7 +112,7 @@ function EPD() {
           <Card style={{ border: "none" }}>
             <Card.Body>
               <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-              اصل EPD
+                اصل EPD
               </Card.Text>
             </Card.Body>
             <Card.Img variant="top" src={require("./images/EPD/3.jpg")} />
@@ -110,13 +130,18 @@ function EPD() {
           >
             محصول قابل اجرا
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/EPD/4.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  پوست حساس لوازم IT
+                    پوست حساس لوازم IT
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -126,7 +151,7 @@ function EPD() {
                 <Card.Img variant="top" src={require("./images/EPD/5.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  ESL: برچسب قفسه الکتریکی
+                    ESL: برچسب قفسه الکتریکی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -136,7 +161,7 @@ function EPD() {
                 <Card.Img variant="top" src={require("./images/EPD/6.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  تابلوهای راهنمایی و رانندگی
+                    تابلوهای راهنمایی و رانندگی
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -155,13 +180,18 @@ function EPD() {
           >
             بخش قابل اجرا
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px", marginBottom: "60px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img variant="top" src={require("./images/EPD/7.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  لوازم الکترونیکی و IT
+                    لوازم الکترونیکی و IT
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -171,7 +201,7 @@ function EPD() {
                 <Card.Img variant="top" src={require("./images/EPD/8.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  توزیع
+                    توزیع
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -181,7 +211,7 @@ function EPD() {
                 <Card.Img variant="top" src={require("./images/EPD/9.jpg")} />
                 <Card.Body>
                   <Card.Text style={{ direction: "rtl", textAlign: "center" }}>
-                  حمل و نقل
+                    حمل و نقل
                   </Card.Text>
                 </Card.Body>
               </Card>

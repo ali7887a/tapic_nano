@@ -1,29 +1,76 @@
-.paragraph{
-    text-align: center;
-    direction: rtl;
-    margin-top: 25px;
-    font-size: large;
+.paragraph {
+  text-align: center;
+  direction: rtl;
+  margin-top: 25px;
+  font-size: large;
 }
-.title{
-    text-align: center;
-    font-weight: bolder;
-    direction: rtl;
-    margin-top: 25px;
-    font-size:35px; 
+.title {
+  text-align: center;
+  font-weight: bolder;
+  direction: rtl;
+  margin-top: 25px;
+  font-size: 35px;
 }
-.span{
-    color:red;
-    font-weight: bold;
-    font-size: large;
-    direction: rtl;
-}
-.questionBox{
+@media only screen and (max-width: 800px) {
+  .span {
+    font-weight: bold !important;
+    font-size: small !important;
+  }
+  .questionBox {
     padding-right: 7%;
     direction: rtl;
+    font-size: 17px;
+  }
 }
-.Htitle{
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+  .questionBox {
+    padding-right: 7%;
     direction: rtl;
+    font-size: 14px;
+  }
 }
-.img{
-    width: 50vw ;
+@media only screen and (max-width: 615px) {
+  .title {
+    font-size: 25px;
+  }
+  .divider {
+    font-size: 20px !important;
+    font-weight: bolder !important;
+  }
 }
+.span {
+  color: red;
+  font-weight: bold;
+  font-size: large;
+  direction: rtl;
+}
+.questionBox {
+  padding-right: 7%;
+  direction: rtl;
+}
+.Htitle {
+  direction: rtl;
+}
+.img {
+  width: 50vw;
+  padding-right: 10px;
+}
+.question {
+  text-align: right;
+  padding-right: 5px;
+}
+.fromResponsive {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media only screen and (max-width: 750px) {
+    .fromResponsive {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+  }

@@ -1,8 +1,7 @@
 import React from "react";
-import { Button, ButtonGroup } from "react-bootstrap";
-import { Outlet, useLocation } from "react-router-dom";
+import { BottomNavigation, BottomNavigationAction, Box } from "@mui/material";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import styles from "../style/Security.module.css";
-import {Link} from "react-router-dom"
 function NanoPlatform() {
   const location = useLocation();
   const path = location.pathname;
@@ -22,17 +21,87 @@ function NanoPlatform() {
   }else{
     window.scrollTo(0,0)
   }
+  const [value, setValue] = React.useState(0);
+  const [value2, setValue2] = React.useState(0);
+  const navigation = useNavigate();
+
   return (
-    <>
+    <> 
       <div className={styles.tabs}>
-      <ButtonGroup size="lg"  >
-        <Button variant="dark"  as={Link} to="/technology/nanoplatform">MTX</Button>
-        <Button variant="dark"  as={Link} to="MPD">MPD</Button>
-        <Button variant="dark"  as={Link} to="SPM">SPM</Button>
-        <Button variant="dark"  as={Link} to="ETX">ETX</Button>
-        <Button variant="dark"  as={Link} to="EPD">EPD</Button>
-        <Button variant="dark"  as={Link} to="ETD">ETD</Button>
-      </ButtonGroup>
+      <Box className={styles.box}>
+          <BottomNavigation
+            showLabels
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            className={styles.firstButton}
+            style={{
+              color: "white",
+              backgroundColor: "#212529",
+              boxShadow:
+                "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+            }}
+          >
+            <BottomNavigationAction
+              label="MTX"
+              style={{ color: "white", minWidth: "60px" }}
+              onClick={() => {
+                navigation("/technology/nanoplatform");
+              }}
+            />
+            <BottomNavigationAction
+              label="MPD"
+              style={{ color: "white", minWidth: "60px" }}
+              onClick={() => {
+                navigation("/technology/nanoplatform/mpd");
+              }}
+            />
+            <BottomNavigationAction
+              label="SPM"
+              style={{ color: "white", minWidth: "60px" }}
+              onClick={() => {
+                navigation("/technology/nanoplatform/spm");
+              }}
+            />
+          </BottomNavigation>
+          <BottomNavigation
+            showLabels
+            value={value2}
+            onChange={(event, newValue) => {
+              setValue2(newValue);
+            }}
+            className={styles.secondButton}
+            style={{
+              color: "white",
+              backgroundColor: "#212529",
+              boxShadow:
+                "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+            }}
+          >
+            <BottomNavigationAction
+              label="ETX"
+              style={{ color: "white", minWidth: "60px" }}
+              onClick={() => {
+                navigation("/technology/nanoplatform/etx");
+              }}
+            />
+            <BottomNavigationAction
+              label="EPD"
+              style={{ color: "white", minWidth: "60px" }}
+              onClick={() => {
+                navigation("/technology/nanoplatform/epd");
+              }}
+            />
+            <BottomNavigationAction
+              label="ETD"
+              style={{ color: "white", minWidth: "60px" }}
+              onClick={() => {
+                navigation("/technology/nanoplatform/etd");
+              }}
+            />
+          </BottomNavigation>
+        </Box>
       </div>
       <Outlet />
     </>

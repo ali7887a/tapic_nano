@@ -4,26 +4,44 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
-import { useLocation , useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import styles from "../style/Security.module.css";
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 function Mpurikit() {
+  // ***** Loading
+  const [state, setState] = useState();
+  const loadingContext = useLoadingContext();
+  const loading = async () => {
+    const data = await loadData();
+    setState(data);
+    loadingContext.done();
+  };
+
+  useEffect(() => {
+    loading();
+  }, []);
+
+  // ***************
   const navigation = useNavigate();
   const location = useLocation();
   const path = location.pathname;
   const store = window.localStorage;
-  let url = '';
-  let prevUrl = '';
+  let url = "";
+  let prevUrl = "";
 
-  url = store.getItem('url');
-  store.setItem('prevUrl', url);
-  store.setItem('url', path);
+  url = store.getItem("url");
+  store.setItem("prevUrl", url);
+  store.setItem("url", path);
 
-  url = store.getItem('url');
-  prevUrl = store.getItem('prevUrl');
-  const pre = localStorage.getItem('prevUrl')
-  if(pre.includes("/product")){
-    console.log('current page')
-  }else{
-    window.scrollTo(0,0)
+  url = store.getItem("url");
+  prevUrl = store.getItem("prevUrl");
+  const pre = localStorage.getItem("prevUrl");
+  if (pre.includes("/product")) {
+    console.log("current page");
+  } else {
+    window.scrollTo(0, 0);
   }
   return (
     <>
@@ -81,7 +99,7 @@ function Mpurikit() {
               fontSize: "25px",
             }}
           >
-مشخصات محصول
+            مشخصات محصول
           </Divider>
           <Table striped bordered hover>
             <thead>
@@ -94,34 +112,36 @@ function Mpurikit() {
             </thead>
             <tbody>
               <tr>
-                <td style={{ direction: "rtl" }}>جلد استاندارد (جلد فرهنگی)	</td>
-                <td style={{ direction: "rtl" }}>1-10 میلی لیتر	</td>
-                <td style={{ direction: "rtl" }}>20-50 میلی لیتر	</td>
-                <td style={{ direction: "rtl" }}>20-50 میلی لیتر
-</td>
+                <td style={{ direction: "rtl" }}>
+                  جلد استاندارد (جلد فرهنگی){" "}
+                </td>
+                <td style={{ direction: "rtl" }}>1-10 میلی لیتر </td>
+                <td style={{ direction: "rtl" }}>20-50 میلی لیتر </td>
+                <td style={{ direction: "rtl" }}>20-50 میلی لیتر</td>
               </tr>
               <tr>
-                <td style={{ direction: "rtl" }}>زمان آماده سازی	</td>
-                <td style={{ direction: "rtl" }}> 15 دقیقه	</td>
-                <td style={{ direction: "rtl" }}> 15 دقیقه	</td>
-                <td style={{ direction: "rtl" }}> 15 دقیقه	</td>
+                <td style={{ direction: "rtl" }}>زمان آماده سازی </td>
+                <td style={{ direction: "rtl" }}> 15 دقیقه </td>
+                <td style={{ direction: "rtl" }}> 15 دقیقه </td>
+                <td style={{ direction: "rtl" }}> 15 دقیقه </td>
               </tr>
               <tr>
-                <td style={{ direction: "rtl" }}>حجم شستشو	</td>
-                <td style={{ direction: "rtl" }}>50 اول	</td>
-                <td style={{ direction: "rtl" }}>250 اول	</td>
-                <td style={{ direction: "rtl" }}>250 اول
-</td>
+                <td style={{ direction: "rtl" }}>حجم شستشو </td>
+                <td style={{ direction: "rtl" }}>50 اول </td>
+                <td style={{ direction: "rtl" }}>250 اول </td>
+                <td style={{ direction: "rtl" }}>250 اول</td>
               </tr>
               <tr>
-                <td style={{ direction: "rtl" }}>بازده DNA مورد انتظار	</td>
-                <td style={{ direction: "rtl" }}>تا 45 گرم	</td>
-                <td style={{ direction: "rtl" }}>تا 450 گرم	</td>
-                <td style={{ direction: "rtl" }}>تا 450 گرم	</td>
+                <td style={{ direction: "rtl" }}>بازده DNA مورد انتظار </td>
+                <td style={{ direction: "rtl" }}>تا 45 گرم </td>
+                <td style={{ direction: "rtl" }}>تا 450 گرم </td>
+                <td style={{ direction: "rtl" }}>تا 450 گرم </td>
               </tr>
               <tr>
-                <td style={{ direction: "rtl" }}>خلوص DNA مورد انتظار	</td>
-                <td style={{ direction: "rtl" }} colSpan={3}>1.8  A260/28</td>
+                <td style={{ direction: "rtl" }}>خلوص DNA مورد انتظار </td>
+                <td style={{ direction: "rtl" }} colSpan={3}>
+                  1.8 A260/28
+                </td>
               </tr>
             </tbody>
           </Table>{" "}
@@ -137,7 +157,12 @@ function Mpurikit() {
           >
             پوشش محصول{" "}
           </Divider>
-          <Row xs={1} md={3} className="g-6" style={{ marginTop: "25px" }}>
+          <Row
+            xs={1}
+            md={3}
+            className={`${styles.card} ${"g-10"}`}
+            style={{ marginTop: "25px" }}
+          >
             <Col>
               <Card style={{ border: "none" }}>
                 <Card.Img
@@ -182,24 +207,24 @@ function Mpurikit() {
         <div
           style={{
             textAlign: "center",
-            marginBottom: "20px",
+            marginBottom: "60px",
             display: "flex",
             justifyContent: "space-evenly",
           }}
         >
-<Button
+          <Button
             variant="danger"
-            size="lg"
+            size="medium"
             onClick={() => navigation("/CS/productInquiry")}
           >
             درخواست کالا
           </Button>
           <Button
             variant="danger"
-            size="lg"
+            size="medium"
             onClick={() => navigation("/technology/nanoplatform/SPM")}
           >
-            فناوری کاربردی: SPM
+            فناوری : SPM
           </Button>
         </div>
       </Card>

@@ -2,62 +2,24 @@ import React, { useEffect, useState } from "react";
 import styles from "../style/Inquiry.module.css";
 import { Divider } from "@mui/material";
 import Accordion from "react-bootstrap/Accordion";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import svg from "./images/talking-in-cellphone.svg";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
-
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
+import Formdesktop1 from "./Formdesktop1";
 function ProductInquiry() {
-  const [validated, setValidated] = useState(false);
-  const [Status, setStatus] = useState(false);
-  const [Check, setCheck] = useState();
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [Organization, setOrganization] = useState("");
-  const [TextArea, setTextArea] = useState("");
-  const [open, setOpen] = React.useState(false);
+  // ***** Loading
+  const [state, setState] = useState();
+  const loadingContext = useLoadingContext();
+  const loading = async () => {
+    const data = await loadData();
+    setState(data);
+    loadingContext.done();
+  };
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    loading();
   }, []);
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    setValidated(true);
-  };
-  const EmailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-
-  useEffect(() => {
-    if (name && TextArea && Organization && Check) {
-      setStatus(true);
-    } else {
-      setStatus(false);
-    }
-  }, [name, TextArea, email, Check]);
-  const handleClick = () => {
-    setOpen(true);
-    setName(' ');
-    setEmail(' ');
-    setOrganization(' ');
-    setTextArea(' ');
-    window.scrollTo(0,0);
-  };
-console.log(name)
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
-  };
-
+  // ***************
   return (
     <div>
       <div className={styles.title}> استعلام محصولات</div>
@@ -70,14 +32,17 @@ console.log(name)
           fontSize: "25px",
           marginTop: "70px",
         }}
+        className={styles.divider}
       >
         سوالات متداول گروه امنیتی
       </Divider>
       <Accordion style={{ direction: "rtl" }}>
         <Accordion.Item eventKey="0">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 1:</span> رقابت اصلی شما در
-            مقایسه با سایر محصولات غیر تقلبی چیست؟
+            <span className={styles.span}>سوال1:</span>{" "}
+            <span className={styles.question}>
+              رقابت اصلی شما در مقایسه با سایر محصولات غیر تقلبی چیست؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             به طور کلی، فناوری‌های بازار ضد جعل عبارتند از: هولوگرام، جوهر
@@ -109,7 +74,8 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 2:</span>روش تایید واقعی چیست؟
+            <span className={styles.span}>سوال2:</span>
+            <span className={styles.question}>روش تایید واقعی چیست؟</span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             فناوری نوآورانه MTX، ماده نانو ثبت اختراع IP است که با میدان
@@ -124,8 +90,11 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="2">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 3:</span>آیا می توانم یک تأیید
-            واقعی بدون آهنربا انجام دهم؟
+            <span className={styles.span}>سوال3:</span>
+            <span className={styles.question}>
+              {" "}
+              آیا می توانم یک تأیید واقعی بدون آهنربا انجام دهم؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             مواد نانو تاپیک نانو یک ماده کریستالی فوتونی است که توسط سوهان
@@ -138,9 +107,13 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="3">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 4:</span>تفاوت بین راه حل تأیید
-            واقعی، M-TAG و راه حل بسته بندی واقعی، M-PAC در میان گروه محصولات
-            امنیتی چیست؟
+            <span className={styles.span}>سوال4:</span>
+            <span className={styles.question}>
+              تفاوت بین راه حل تأیید واقعی، M-TAG و راه حل بسته بندی واقعی،
+              M-PAC در میان گروه محصولات امنیتی چیست؟تفاوت بین راه حل تأیید
+              واقعی، M-TAG و راه حل بسته بندی واقعی، M-PAC در میان گروه محصولات
+              امنیتی چیست؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             راه حل راستی آزمایی اصیل گروهی از محصولات امنیتی با مواد نانو قابل
@@ -154,9 +127,11 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="4">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 5:</span>چگونه می توانم از M-TAG
-            یا M-PAC برای جلوگیری از استفاده مجدد به عنوان تأیید واقعی اطمینان
-            حاصل کنم؟
+            <span className={styles.span}>سوال5:</span>
+            <span className={styles.question}>
+              چگونه می توانم از M-TAG یا M-PAC برای جلوگیری از استفاده مجدد به
+              عنوان تأیید واقعی اطمینان حاصل کنم؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             M-TAG یک راه حل راستی آزمایی واقعی با اعمال آهنربا بر روی مواد نانو
@@ -173,8 +148,10 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="5">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 6:</span>مواد جدید نانو در کجا
-            تولید و مدیریت می شوند؟
+            <span className={styles.span}>سوال6:</span>
+            <span className={styles.question}>
+              مواد جدید نانو در کجا تولید و مدیریت می شوند؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             کل تولید مواد جدید نانو در مقر تاپیک نانو در شهر Pyongtack انجام می
@@ -185,8 +162,10 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="6">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 7:</span>آیا امکان خرید محصولات
-            امنیتی به صورت شخصی وجود دارد؟
+            <span className={styles.span}>سوال7:</span>
+            <span className={styles.question}>
+              آیا امکان خرید محصولات امنیتی به صورت شخصی وجود دارد؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             به دلیل هدف امنیتی بالای آن، مواد و برنامه های کاربردی نانو جدید به
@@ -198,8 +177,10 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="7">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 8:</span>آیا امکان خرید مواد
-            امنیتی وجود دارد؟
+            <span className={styles.span}>سوال8:</span>
+            <span className={styles.question}>
+              آیا امکان خرید مواد امنیتی وجود دارد؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             به عنوان مواد کریستال فوتونیک قابل تنظیم رنگ مغناطیسی برای امنیت که
@@ -217,14 +198,17 @@ console.log(name)
           marginTop: "70px",
           direction: "rtl",
         }}
+        className={styles.divider}
       >
         سوالات متداول گروه BIO{" "}
       </Divider>
       <Accordion>
         <Accordion.Item eventKey="9">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 1:</span>آیا امکان خرید مواد
-            امنیتی وجود دارد؟
+            <span className={styles.span}>سوال1:</span>
+            <span className={styles.question}>
+              آیا امکان خرید مواد امنیتی وجود دارد؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             M-Bead ما یک نانوذره سوپرپارامغناطیس با یک گروه عملکردی خاص روی سطح
@@ -235,8 +219,10 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="10">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 2:</span>رقابت M-Bead در مقایسه
-            با سایرین چقدر است؟
+            <span className={styles.span}>سوال2:</span>
+            <span className={styles.question}>
+              رقابت M-Bead در مقایسه با سایرین چقدر است؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             ما به عنوان یک تولید کننده تخصصی مواد نانو، تکنولوژی و امکانات تولید
@@ -246,8 +232,10 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="11">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 3:</span>آیا می توانم با تغییر
-            اندازه ذرات M-Bead سفارش بدهم؟
+            <span className={styles.span}>سوال3:</span>
+            <span className={styles.question}>
+              آیا می توانم با تغییر اندازه ذرات M-Bead سفارش بدهم؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             در حال حاضر M-Bead با اندازه های استاندارد 200 نانومتر و 500 نانومتر
@@ -259,8 +247,10 @@ console.log(name)
         </Accordion.Item>
         <Accordion.Item eventKey="12">
           <Accordion.Header className={styles.Htitle}>
-            <span className={styles.span}>سوال 4:</span>آیا میتوانم خواستار یک
-            جلسه رسمی با شما باشم؟
+            <span className={styles.span}>سوال4:</span>
+            <span className={styles.question}>
+              آیا میتوانم خواستار یک جلسه رسمی با شما باشم؟
+            </span>
           </Accordion.Header>
           <Accordion.Body className={styles.questionBox}>
             حتما در صورت تمایل می توانید به ایمیل Tapicnano@gmail.com با ما تماس
@@ -272,109 +262,13 @@ console.log(name)
         style={{
           marginBottom: "15px",
           fontSize: "25px",
-          marginTop: "70px",
+          marginTop: "50px",
         }}
+        className={styles.divider}
       >
         استعلام آنلاین{" "}
       </Divider>
-      <Form
-        style={{
-          direction: "rtl",
-          padding: "25px",
-          backgroundColor: "#4d71da",
-          color: "white",
-          margin: "15px",
-        }}
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-      >
-        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-          <div>
-            <Form.Group className="mb-3" style={{ maxWidth: "400px" }}>
-              <Form.Label>نام و نام خانوادگی:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="علی علائی"
-                required
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" style={{ maxWidth: "400px" }}>
-              <Form.Label>نام سازمان:</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="شرکت تاپیک نانو"
-                required
-                onChange={(e) => setOrganization(e.target.value)}
-                value={Organization}
-              />
-            </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="formBasicEmail"
-              style={{ maxWidth: "400px" }}
-            >
-              <Form.Label>ایمیل:</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Tapicnano@gmail.com"
-                onChange={(e) => setEmail(e.target.value)}
-                isInvalid={email && !EmailPattern.test(email)}
-                value={email}
-                required
-              />
-              <Form.Control.Feedback type="invalid">
-                ایمیل خود را به درستی وارد کنید.{" "}
-              </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
-              <Form.Control
-                as="textarea"
-                rows={3}
-                required
-                onChange={(e) => setTextArea(e.target.value)}
-                value={TextArea}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check
-                style={{ float: "right" }}
-                type="checkbox"
-                label="من با جمع آوری و استفاده از اطلاعات شخصی موافقم."
-                required
-                feedback="شما می بایست ابتدا این گزینه را تیک بزنید."
-                feedbackType="invalid"
-                onChange={(e) => setCheck(e.target.checked)}
-              />
-            </Form.Group>
-            <Button
-              variant="dark"
-              style={{
-                marginTop: "35px",
-                marginBottom: "35px",
-                justifyContent: "center",
-              }}
-              type="submit"
-              onClick={Status === true && handleClick}
-            >
-              ارسال استعلام
-            </Button>
-          </div>
-          <img alt="nothing to show" src={svg} className={styles.img} />
-        </div>
-      </Form>
-      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          پیام شما با موفقیت ارسال شد{" "}
-        </Alert>
-      </Snackbar>
+      <Formdesktop1/>
     </div>
   );
 }

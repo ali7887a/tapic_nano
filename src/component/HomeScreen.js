@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Card1 from "./Card1";
 import SliderCarousel from "./Carousel";
 import Introduction from "./Introduction";
@@ -6,7 +5,24 @@ import Introduction2 from "./Introduction2";
 import styles from "../style/HomeScreen.module.css";
 import AboveFooter from "./AboveFooter";
 import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLoadingContext } from "react-router-loading";
+import loadData from "./fetchers";
 function HomeScreen() {
+   // ***** Loading
+   const [state, setState] = useState();
+   const loadingContext = useLoadingContext();
+   const loading = async () => {
+     const data = await loadData();
+     setState(data);
+     loadingContext.done();
+   };
+ 
+   useEffect(() => {
+     loading();
+   }, []);
+ 
+   // ***************
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])

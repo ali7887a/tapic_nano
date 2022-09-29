@@ -28,6 +28,7 @@
     "react-redux": "^7.2.6",
     "react-responsive-carousel": "^3.2.22",
     "react-router-dom": "^6.2.1",
+    "react-router-loading": "^1.0.0",
     "react-scripts": "5.0.0",
     "react-simple-star-rating": "^4.0.5",
     "react-stepper-horizontal": "^1.0.11",
